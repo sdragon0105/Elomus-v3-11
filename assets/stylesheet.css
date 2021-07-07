@@ -17,7 +17,7 @@ Get font-families from theme settings
 
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -113,7 +113,7 @@ body ::-webkit-scrollbar
 
 body ::-webkit-scrollbar-thumb
 {
-  background-color: #ddd; 
+  background-color: #ddd;
   border-radius: 10px;
 
 }
@@ -141,7 +141,7 @@ input[type=text] {
   height: 30px;
 }
 img{
-  max-width: 100%; 
+  max-width: 100%;
   height: auto;
 }
 /* Fix some bootstrap issues */
@@ -1186,7 +1186,7 @@ header .btn-group .dropdown-menu .item-selected{
   z-index: 889;
   margin: 0 auto;
   position: fixed !important;
-  -webkit-animation-name: fadeInDown; 
+  -webkit-animation-name: fadeInDown;
   -webkit-animation-duration: 5.0s;
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
@@ -1288,9 +1288,9 @@ header .btn-group .dropdown-menu .item-selected{
   opacity: 0.8;
 }
 .banner-static .image a.product-image, .banner-static .image a.product-image img {
-  width: initial; 
+  width: initial;
   min-width: 450px;
-  border-radius; 35px; 
+  border-radius; 35px;
 }
 .banner-static .image a img {
   -webkit-transition: all 300ms ease-in;
@@ -1463,7 +1463,7 @@ header .btn-group .dropdown-menu .item-selected{
 
 }
 .static2-elomus2 .module-title {
-  margin-bottom: 30px;  
+  margin-bottom: 30px;
 }
 .static2-elomus2 .col {
   display: table-cell;
@@ -1636,7 +1636,7 @@ header .btn-group .dropdown-menu .item-selected{
 .static3-elomus1 .text-content .box-options .box,
 .static4-elomus4.alt2 .text-content .box-options .box{
   -webkit-flex: 1;  /* Safari 6.1+ */
-  -ms-flex: 1;  /* IE 10 */    
+  -ms-flex: 1;  /* IE 10 */
   flex: 1;
 }
 .static3-elomus1 .text-content .box-options .box > div,
@@ -1869,7 +1869,7 @@ header .btn-group .dropdown-menu .item-selected{
   width: 54.427%;
 }
 .static4-elomus2.alt .col-image {
-  width: 50%; 
+  width: 50%;
 }
 .static4-elomus2 .box-bottom  {
   text-align: right;
@@ -1930,7 +1930,7 @@ header .btn-group .dropdown-menu .item-selected{
   border-radius: 25px;
   -webkit-border-radius: 25px;
   margin-top: 32px;
-  background: transparent; 
+  background: transparent;
 }
 .static4-elomus2 .col-text a:before, .static4-elomus2 .col-text button:before {
   content:"\e64a";
@@ -2113,10 +2113,10 @@ header .btn-group .dropdown-menu .item-selected{
   color: #d7d7d7;
 }
 .static4-elomus4 .box p {
-  line-height: 20px; 
+  line-height: 20px;
 }
 .static4-elomus4.advert6 .box p {
-  color: #7e7e7e; 
+  color: #7e7e7e;
 }
 
 .static5-elomus1 {
@@ -2399,7 +2399,7 @@ header .btn-group .dropdown-menu .item-selected{
   background: #f8f8f8;
 }
 
-/* Products */ 
+/* Products */
 
 .owl-item.active .item {
   -moz-animation: zoomIn 500ms ease;
@@ -2412,7 +2412,7 @@ header .btn-group .dropdown-menu .item-selected{
 }
 .item .item-inner {
   position: relative;
-  
+
   border-radius: 30px;
   -webkit-border-radius: 30px;
   -webkit-transition: all 300ms ease-in-out;
@@ -2528,7 +2528,7 @@ header .btn-group .dropdown-menu .item-selected{
 }
 
 .item-inner .action-links button.wishlist-btn.is-active {
-  color: #ea3232; 
+  color: #ea3232;
 }
 .item-inner .action-links  button:not(:first-child) {
   border-top: 1px solid #e5e5e5;
@@ -2582,7 +2582,7 @@ header .btn-group .dropdown-menu .item-selected{
   padding: 17px 0 38px 0;
 }
 .product-info-main .item-inner .caption {
-  padding: 17px 0 24px 0;  
+  padding: 17px 0 24px 0;
 }
 .item-inner .product-des {
   line-height: 24px;
@@ -2790,7 +2790,7 @@ header .btn-group .dropdown-menu .item-selected{
   vertical-align: top;
   margin: 0;
 }
-/*-------------*/ 
+/*-------------*/
 .module-footer .module-title h2 {
   font-size: 20px;
   line-height: 24px;
@@ -2805,6 +2805,19 @@ header .btn-group .dropdown-menu .item-selected{
 /*grid-style*/
 .grid-style:not(:first-child) {
   margin-top: 20px;
+}
+
+.nav-tabs-title {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+.arrow-right {
+  display: none;
+}
+
+.nav-tabs-title.active .arrow-right {
+  display: block !important;
 }
 
 .grid-style .item-inner .caption .price-box {
@@ -3035,10 +3048,10 @@ header .btn-group .dropdown-menu .item-selected{
   background: transparent;
 }
 .module-nav2  .owl-carousel.owl-theme .owl-nav div:hover {
-  color: #ea3232;  
+  color: #ea3232;
 }
 .module-nav2  .owl-carousel.owl-theme .owl-nav div:hover:before {
-  font-size: 24px;  
+  font-size: 24px;
 }
 .module-nav2 .owl-carousel.owl-theme .owl-nav div:before {
   font-size: 14px;
@@ -4758,7 +4771,7 @@ label[for='Quantity']{
   -webkit-box-shadow: 1px 1px 0 0 #ffffff;
 }
 .product-info-main button.btn-wishlist.is-active {
-  background: #ea3232 
+  background: #ea3232
 }
 .product-info-main button.btn-wishlist:before,.product-info-main button.btn-compare:before {
   content: "\e67e";
@@ -4839,33 +4852,35 @@ margin-top: 5px;
 
 .product-info-detailed {
   margin-top: 90px;
-  display: inline-block;
-  vertical-align: top;
+  display: flex;
   width: 100%;
 }
 .product-info-detailed .nav-tabs, .product-info-detailed .mobtab {
   margin-bottom: 0;
-  text-align: center;
-  border: 1px solid #e5e5e5;
   padding: 14px;
-  box-shadow: 1px 1px 0 0 #ffffff;
-  -webkit-box-shadow: 1px 1px 0 0 #ffffff;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
+  border-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.product-contnet-nav {
+
 }
 
 .product-info-detailed .mobtab {
   margin-bottom: 10px;
   padding: 5px;
+  text-align: start;
 }
 
 .product-info-detailed .nav-tabs li {
   position: relative;
   display: inline-block;
   vertical-align: top;
-  margin-right: 50px;
   margin-bottom: 0;
   float: none;
+  border-bottom: 1px solid grey !important;
+  padding: 10px 0;
 }
 
 .product-info-detailed .nav-tabs li:last-child {
@@ -4904,6 +4919,8 @@ margin-top: 5px;
   line-height: 24px;
   padding-top: 25px;
   font-size: 14px;
+  width: 70%;
+  margin-left: 40px;
 }
 @media (max-width: 567px) {
   .mobtab {
@@ -5464,7 +5481,7 @@ margin-top: 5px;
     display: block;
     width: 100%;
   }
-  .static2-elomus3 .row { 
+  .static2-elomus3 .row {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -5563,11 +5580,11 @@ margin-top: 5px;
     top: 10px;
   }
 }
-@media(max-width: 640px){ 
+@media(max-width: 640px){
   .tt_tabsproduct_module .tabs-categorys {
   }
 }
-@media(max-width: 567px){ 
+@media(max-width: 567px){
   .hd5c .logo-container { float: left; }
   .product-info-detailed .nav-tabs {
     padding: 0;
@@ -5679,7 +5696,7 @@ margin-top: 5px;
 
 @media (max-width: 479px) and (min-width: 0px){
   /*#content .product-item:nth-child(1n+1) {clear: left;}
-  #content .product-item {width: 100%;}*/  
+  #content .product-item {width: 100%;}*/
 
   /*  #content .custom-category .product-item:nth-child(1n+1) {clear: left;}
   #content .custom-category .product-item{width: 100%;}  */
@@ -5714,7 +5731,7 @@ margin-top: 5px;
   .four_items:nth-child(4n+1),
   .three_items:nth-child(3n+1),
   .two_items:nth-child(2n+1)
-  {  clear: left;} 
+  {  clear: left;}
 }
 
 /*Button CustomView */

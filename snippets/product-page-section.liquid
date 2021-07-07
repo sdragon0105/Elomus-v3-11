@@ -34,23 +34,42 @@
     {% if section.settings.product_description_layout == 'tab' %}
     {% if section.settings.show_description_tab %}
     <ul class="nav nav-tabs">
-      <li role="presentation" class="active">
+      <li role="presentation" class="nav-tabs-title active">
         <a href="#description" aria-controls="description" role="tab" data-toggle="tab">{{ 'products.product.description' | t }}</a>
+        <div class="arrow-right">
+          <svg version="1.1" id="Layer_1" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.91 122.88" style="enable-background:new 0 0 66.91 122.88" xml:space="preserve"><g><path d="M1.95,111.2c-2.65,2.72-2.59,7.08,0.14,9.73c2.72,2.65,7.08,2.59,9.73-0.14L64.94,66l-4.93-4.79l4.95,4.8 c2.65-2.74,2.59-7.11-0.15-9.76c-0.08-0.08-0.16-0.15-0.24-0.22L11.81,2.09c-2.65-2.73-7-2.79-9.73-0.14 C-0.64,4.6-0.7,8.95,1.95,11.68l48.46,49.55L1.95,111.2L1.95,111.2L1.95,111.2z"/></g></svg>
+        </div>
       </li>
       {% if section.settings.show_reviews_tab %}
-      <li role="presentation" class="reviews"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">{{ 'products.product.reviews' | t }}</a></li>
+      <li role="presentation" class="nav-tabs-title reviews">
+        <a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">{{ 'products.product.reviews' | t }}</a>
+        <div class="arrow-right">
+          <svg version="1.1" id="Layer_1" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.91 122.88" style="enable-background:new 0 0 66.91 122.88" xml:space="preserve"><g><path d="M1.95,111.2c-2.65,2.72-2.59,7.08,0.14,9.73c2.72,2.65,7.08,2.59,9.73-0.14L64.94,66l-4.93-4.79l4.95,4.8 c2.65-2.74,2.59-7.11-0.15-9.76c-0.08-0.08-0.16-0.15-0.24-0.22L11.81,2.09c-2.65-2.73-7-2.79-9.73-0.14 C-0.64,4.6-0.7,8.95,1.95,11.68l48.46,49.55L1.95,111.2L1.95,111.2L1.95,111.2z"/></g></svg>
+        </div>
+      </li>
       {% endif %}
       {% if section.settings.show_third_tab %}
-      <li role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">{{ section.settings.third_tab_title }}</a></li>
+      <li role="presentation" class="nav-tabs-title">
+        <a href="#data" aria-controls="data" role="tab" data-toggle="tab">{{ section.settings.third_tab_title }}</a>
+        <div class="arrow-right">
+          <svg version="1.1" id="Layer_1" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.91 122.88" style="enable-background:new 0 0 66.91 122.88" xml:space="preserve"><g><path d="M1.95,111.2c-2.65,2.72-2.59,7.08,0.14,9.73c2.72,2.65,7.08,2.59,9.73-0.14L64.94,66l-4.93-4.79l4.95,4.8 c2.65-2.74,2.59-7.11-0.15-9.76c-0.08-0.08-0.16-0.15-0.24-0.22L11.81,2.09c-2.65-2.73-7-2.79-9.73-0.14 C-0.64,4.6-0.7,8.95,1.95,11.68l48.46,49.55L1.95,111.2L1.95,111.2L1.95,111.2z"/></g></svg>
+        </div>
+      </li>
       {% endif %}
       {% if section.settings.show_tags_tab %}
-      <li role="presentation">
+      <li role="presentation" class="nav-tabs-title">
         <a href="#tags" aria-controls="tags" role="tab" data-toggle="tab">{{ 'products.product.tags' | t }}</a>
+        <div class="arrow-right">
+          <svg version="1.1" id="Layer_1" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.91 122.88" style="enable-background:new 0 0 66.91 122.88" xml:space="preserve"><g><path d="M1.95,111.2c-2.65,2.72-2.59,7.08,0.14,9.73c2.72,2.65,7.08,2.59,9.73-0.14L64.94,66l-4.93-4.79l4.95,4.8 c2.65-2.74,2.59-7.11-0.15-9.76c-0.08-0.08-0.16-0.15-0.24-0.22L11.81,2.09c-2.65-2.73-7-2.79-9.73-0.14 C-0.64,4.6-0.7,8.95,1.95,11.68l48.46,49.55L1.95,111.2L1.95,111.2L1.95,111.2z"/></g></svg>
+        </div>
       </li>
       {% endif %}
       {% if product.description contains '[tab]' %}
-      <li role="presentation">
+      <li role="presentation" class="nav-tabs-title">
         <a href="#tab" aria-controls="tab" role="tab" data-toggle="tab">{{ section.settings.custom_tab_title }}</a>
+        <div class="arrow-right">
+          <svg version="1.1" id="Layer_1" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.91 122.88" style="enable-background:new 0 0 66.91 122.88" xml:space="preserve"><g><path d="M1.95,111.2c-2.65,2.72-2.59,7.08,0.14,9.73c2.72,2.65,7.08,2.59,9.73-0.14L64.94,66l-4.93-4.79l4.95,4.8 c2.65-2.74,2.59-7.11-0.15-9.76c-0.08-0.08-0.16-0.15-0.24-0.22L11.81,2.09c-2.65-2.73-7-2.79-9.73-0.14 C-0.64,4.6-0.7,8.95,1.95,11.68l48.46,49.55L1.95,111.2L1.95,111.2L1.95,111.2z"/></g></svg>
+        </div>
       </li>
       {% endif %}
     </ul>
@@ -58,7 +77,7 @@
     {% endif %}
     {% if section.settings.show_description_tab %}
     <div class="tab-content">
-      <div class="mobtab" role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab" class="active">{{ 'products.product.description' | t }}</a></div>
+      <!-- <div class="mobtab" role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab" class="active">{{ 'products.product.description' | t }}</a></div> -->
       <div role="tabpanel" class="tab-pane active" id="description">
         <p>
           {% comment %} {{ product.description | split:"[video]" | first | strip_html }} {% endcomment %}
@@ -66,7 +85,7 @@
         </p>
       </div>
       {% if section.settings.show_reviews_tab %}
-      <div class="mobtab" role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">{{ 'products.product.reviews' | t }}</a></div>
+      <!-- <div class="mobtab" role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">{{ 'products.product.reviews' | t }}</a></div> -->
       <div role="tabpanel" class="tab-pane" id="reviews">
         <p>
           {% include 'product-review' %}
@@ -74,7 +93,7 @@
       </div>
       {% endif %}
       {% if section.settings.show_third_tab %}
-      <div class="mobtab" role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">{{ section.settings.third_tab_title }}</a></div>
+      <!-- <div class="mobtab" role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">{{ section.settings.third_tab_title }}</a></div> -->
       <div role="tabpanel" class="tab-pane" id="data">
         {{ section.settings.third_tab_text }}
       </div>
@@ -83,7 +102,7 @@
       <div class="mobtab" role="presentation"><a href="#tags" aria-controls="tags" role="tab" data-toggle="tab">{{ 'products.product.tags' | t }}</a></div>
       <div role="tabpanel" class="tab-pane" id="tags">
         <p class="tags">
-          <span>{{ 'products.product.tags' | t }}: 
+          <span>{{ 'products.product.tags' | t }}:
             {% for tag in product.tags %}
             {% unless tag contains '_' %}
             <a href="/collections/all/{{ tag }}">{{ tag }}</a>
@@ -130,7 +149,7 @@
 {% endif %}
 
 <script type="text/javascript"><!--
-  // related products	 
+  // related products
   $(document).ready(function() {
   $('.related-container').owlCarousel({
     nav: true,
@@ -165,7 +184,7 @@
     },
     onTranslated: function() {
       owlAction();
-    }	
+    }
   });
   function owlAction() {
     $(".related-container .owl-item").removeClass('first');
@@ -188,7 +207,7 @@
     var displayDescription = pDescription.substring(0, index);
     $('.short-des').text($(displayDescription).text());
     $('.woocommerce-product-details__short-description').html(displayDescription);
-    
+
     // split description content
     var variantAllEl = $('<div>' + variantDesHTML.replace(/\r?\n|\r/g, '')  + '</div>');
     variantAllEl.find("p:contains('variant:')").each(function(){
@@ -226,7 +245,7 @@
       adaptiveHeight: true,
       minSlides: 6,
       moveSlides: 1
-    }); 
+    });
     {% endif %}
     {% if product_page_layout == 'sticky_layout' %}
     if ($(window).width() >= 768  ) {
@@ -255,7 +274,7 @@
   // when a variant is selected that has a variant image.
   Shopify.Image.preload({{ product.images | json }}, 'master');
   {% endif %}
-  
+
   var selectCallback = function(variant, selector) {
 	$('.variant-description').remove();
     var findVariantDescription = variantDescriptions.find(function(val){
@@ -349,7 +368,7 @@
             }
 
             // Regardless of stock, update the product price
-            Shopify.money_format = '{{shop.money_format }}'; 
+            Shopify.money_format = '{{shop.money_format }}';
 
             //var customPrice = timber.formatMoney( Shopify.formatMoney(variant.price,Shopify.money_format) );
             var a11yPrice = Shopify.formatMoney(variant.price, Shopify.money_format);
@@ -388,7 +407,7 @@
             var element = originalImage[0];
             Shopify.Image.switchImage(newImage, element, function (newImageSizedSrc, newImage, element) {
               $(element).parents('a').attr('href', newImageSizedSrc);
-              $(element).attr('src', newImageSizedSrc);       
+              $(element).attr('src', newImageSizedSrc);
               {% if settings.lazyloading_enable %} $(element).attr('data-src', newImageSizedSrc);  {% endif %}
               $('#light-box-position').val(newImage.position);
               $('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
@@ -412,7 +431,7 @@
             $('.variant-sku').text(variant.sku);
             if(variant.sku != '')
               $('.skuvariant').show();
-            else 
+            else
               $('.skuvariant').hide();
           } else {
             $('.variant-sku').empty();
@@ -424,7 +443,7 @@
             $('.variant-barcode').text(variant.barcode);
             if(variant.barcode != '')
               $('.barcodevariant').show();
-            else 
+            else
               $('.barcodevariant').hide();
           } else {
             $('.variant-barcode').empty();
@@ -462,7 +481,7 @@
             Currency.convertAll(shopCurrency, defaultCurrency);
           } else {
             Currency.convertAll(shopCurrency, cookieCurrency);
-          }    
+          }
           {% endif %}
 
         };
@@ -488,14 +507,14 @@
           {% endif %}
           /* Hide selectors if we only have 1 variant and its title contains 'Default'. */
           {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
-          $('.selector-wrapper').hide();
+          // $('.selector-wrapper').hide();
           // Sticky Add to cart
           $("#title").removeClass("hidden-sm hidden-xs").addClass( "col-7" );
           {% else %}
           $('#variantBreak').removeClass('hr--clear');
           {% endif %}
           //$('.selector-wrapper').hide();
-        }); 
+        });
 </script>
 {% if section.settings.show_variant_swatches != 'false' %}
 {% include 'linked-options' %}
