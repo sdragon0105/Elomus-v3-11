@@ -1,0 +1,7 @@
+{% if settings.product_reviews_enable %}
+<div class="ratings">
+  <div class="rating-box">
+    <span class="shopify-product-reviews-badge" data-id="{% if template == 'search' %}{{ item.id }}{% else %}{{ product.id }}{% endif %}"></span>
+  </div>
+</div>
+{% endif %}

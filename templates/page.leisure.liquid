@@ -1,0 +1,103 @@
+<head>
+    <!-- Basic page needs ================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Helpers ================================================== -->
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+
+    <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" />
+    <link rel="apple-touch-icon" href="{{ 'favicon.png' | asset_url }}" />
+
+    <!-- Title and description ================================================== -->
+    <title>
+      {{ page_title }}{% if current_tags %}{% assign current_tags_joined = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: current_tags_joined }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+
+    <meta name="description" content="{{ page_description | escape }}">
+
+
+    <!-- Prefetch Preconnect ================================================== -->
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
+    <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin="">
+    <link rel="dns-prefetch" href="{{ canonical_url }}" crossorigin="">
+    <link rel="dns-prefetch" href="//cdn.shopify.com" crossorigin="">
+    <link rel="dns-prefetch" href="//fonts.shopifycdn.com" crossorigin="">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" crossorigin="">
+
+    <!-- Product meta ================================================== -->
+    {% include 'open-graph-tags' %}
+    {% include 'twitter-card' %}
+
+    <!-- CSS ================================================== -->
+    <link rel="preload" as="style" href="{{ 'plugins.min.css' | asset_url }}">
+    <link rel="preload" as="style" href="{{ 'theme.css' | asset_url }}">
+    <link rel="preload" as="style" href="{{ 'stylesheet.css' | asset_url }}">
+    <link rel="preload" as="style" href="{{ 'faq-style.css' | asset_url }}">
+    <link rel="preload" as="style" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" onload="this.rel='stylesheet'" crossorigin defer>
+    <link rel="preload" as="style" href="//cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" onload="this.rel='stylesheet'" crossorigin defer>
+    <link rel="preload" as="style" href="{{ 'stroke-gap-icons.css' | asset_url }}" onload="this.rel='stylesheet'" defer>
+    {% include 'google-fonts' %}
+   <link rel="preload" as="style" href="{{ 'slideshow.css' | asset_url }}" onload="this.rel='stylesheet'">
+
+    <link rel="preload" as="style" href="{{ 'zoom.css' | asset_url }}" onload="this.rel='stylesheet'">
+
+    <!-- {% if template contains 'collection' or template contains 'blog' or template contains 'article' %} -->
+    <link rel="preload" as="style" href="{{ 'filter.css' | asset_url }}" onload="this.rel='stylesheet'">
+    <!-- {% endif %} -->
+    <link rel="preload" as="style" href="{{ 'custom.css' | asset_url }}">
+    <link rel="preload" as="style" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css" onload="this.rel='stylesheet'" crossorigin defer>
+    {% comment %} {% if template == 'page.faq' %}
+    <link rel="preload" as="style" href="{{ 'faq-style.css' | asset_url }}" onload="this.rel='stylesheet'">
+    {% endif %} {% endcomment %}
+
+    {{ 'plugins.min.css' | asset_url | stylesheet_tag }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'stylesheet.css' | asset_url | stylesheet_tag }}
+    {{ 'faq-style.css' | asset_url | stylesheet_tag }}
+    {{ 'custom.css' | asset_url | stylesheet_tag }}
+    <!-- {% if template contains 'collection' or template contains 'blog' or template contains 'article' %} -->
+    {{ 'filter.css' | asset_url | stylesheet_tag }}
+    <!-- {% endif %} -->
+    <!-- Header hook for plugins ================================================== -->
+    {{ content_for_header }}
+
+    <script src="{{ 'jquery-2.1.1.min.js' | asset_url }}"></script>
+    <!-- {% if template contains 'customers' %} -->
+    <script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script>
+    <script src="{{ 'customer_area.js'  | shopify_asset_url }}"></script>
+    <!-- {% endif %} -->
+    <!-- {% if template != 'cart' %} -->
+    <script src="{{ 'option_selection.js' | shopify_asset_url }}"></script>
+    <!-- {% endif %} -->
+    <!-- {% if template == 'cart' %} -->
+    <script src="{{ 'shipping-cart.js' | asset_url }}"></script>
+    <!-- {% endif %} -->
+
+  <script src="{{ 'moment.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'jquery.bpopup.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'jquery.cookie.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quickview.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'common.js' | asset_url }}" defer="defer"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js" defer="defer"></script>
+  <script src="{{ 'jquery.magnific-popup.min.js' | asset_url }}" defer="defer"></script>
+  </head>
+
+{% section 'leisure-slideshow' %}
+{% section 'leisure-ad-product' %}
+{% section 'leisure-ad-product-page' %}
+{% section 'leisure-collection' %}
+{% section 'leisure-service-box' %}
+{% section 'leisure-service-box1' %}
+{% section 'leisure-videobox' %}
+{% section 'leisure-ad-product-1' %}
+{% section 'leisure-ad-product-2' %}
+{% section 'leisure-testimonial' %}
+{% section 'leisure-videobox-2' %}
+{% section 'leisure-ad-product-3' %}
+{% section 'leisure-ad-product-4' %}
+{% section 'leisure-collection-1' %}
+{% section 'leisure-faq-main-page' %}
