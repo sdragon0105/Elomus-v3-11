@@ -65,8 +65,8 @@
                     </span>
                   </div>
                 </td>
-                <td class="text-right">{{ item.price | money }}</td>
-                <td class="text-right">{{ item.line_price | money }}</td>
+                <td class="text-right">{{ item.price | money_with_currency }}</td>
+                <td class="text-right">{{ item.line_price | money_with_currency }}</td>
               </tr>
               {% endfor %}
             </tbody>
@@ -111,7 +111,7 @@
                 <td colspan="2" class="text-center"><strong>{{ 'cart.general.taxes_extra' | t }}</strong></td>
               </tr>
               {% if cart.total_discounts > 0 %}
-              {% assign savings = cart.total_discounts | money %}
+              {% assign savings = cart.total_discounts | money_with_currency %}
               <tr>
                 <td class="text-right"><strong>{{ 'cart.general.discount' | t }}:</strong></td>
                 <td class="text-right"><span class="total-price">{{ 'cart.general.savings_html' | t: price: savings }}</span></td>
@@ -119,7 +119,7 @@
               {% endif %}
               <tr>
                 <td class="text-right"><strong>{{ 'cart.general.subtotal' | t }}:</strong></td>
-                <td class="text-right"><span class="total-price">{{ cart.total_price | money }}</span></td>
+                <td class="text-right"><span class="total-price">{{ cart.total_price | money_with_currency }}</span></td>
               </tr>
               {% if section.settings.cart_terms_c_enable %}
               <tr>
@@ -177,7 +177,7 @@
     submitButton: theme.strings.shippingCalcSubmitButton,
     submitButtonDisabled: theme.strings.shippingCalcSubmitButtonDisabled,
     customerIsLoggedIn: theme.strings.shippingCalcCustomerIsLoggedIn,
-    moneyFormat: theme.strings.shippingCalcMoneyFormat                                     
+    moneyFormat: theme.strings.shippingCalcMoneyFormat
   } );
 </script>
 {% endunless %}

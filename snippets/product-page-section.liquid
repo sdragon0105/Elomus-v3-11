@@ -77,24 +77,24 @@
     {% endif %}
     {% if section.settings.show_description_tab %}
     <div class="tab-content">
-      <!-- <div class="mobtab" role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab" class="active">{{ 'products.product.description' | t }}</a></div> -->
       <div role="tabpanel" class="tab-pane active" id="description">
+        <div class="mobtab" role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab" >{{ 'products.product.description' | t }}</a></div>
         <p>
           {% comment %} {{ product.description | split:"[video]" | first | strip_html }} {% endcomment %}
           {{ product.description | split:"[summary]" | first | split:"[video]" | first | split:"[tab]" | first | split:"[deal]" | first | split:"[affiliate]" | first }}
         </p>
       </div>
       {% if section.settings.show_reviews_tab %}
-      <!-- <div class="mobtab" role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">{{ 'products.product.reviews' | t }}</a></div> -->
       <div role="tabpanel" class="tab-pane" id="reviews">
+        <div class="mobtab" role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">{{ 'products.product.reviews' | t }}</a></div>
         <p>
           {% include 'product-review' %}
         </p>
       </div>
       {% endif %}
       {% if section.settings.show_third_tab %}
-      <!-- <div class="mobtab" role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">{{ section.settings.third_tab_title }}</a></div> -->
       <div role="tabpanel" class="tab-pane" id="data">
+        <div class="mobtab" role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">{{ section.settings.third_tab_title }}</a></div>
         {{ section.settings.third_tab_text }}
       </div>
       {% endif %}
@@ -276,10 +276,11 @@
   {% endif %}
 
   var selectCallback = function(variant, selector) {
-	$('.variant-description').remove();
+	 $('.variant-description').remove();
     var findVariantDescription = variantDescriptions.find(function(val){
       return val.id === variant.id;
     });
+    console.log(findVariantDescription);
     if (!!findVariantDescription) {
     	$(".form-group").first().append('<div class="variant-description"> ' + findVariantDescription.description + '</div>')
     }
