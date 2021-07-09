@@ -1,4 +1,5 @@
 var stickyOffset = 0;
+
 function getURLVar(key) {
   var value = [];
 
@@ -667,7 +668,7 @@ function load(cart){
     var price = parseInt(cartItem.price / 100) + "." + cents + cartItem.price % 100;
 
     var cartRemove = 'onclick="cart.remove(\''+cartItem.id+'\')"';
-    var cartItem = "<tr><td class='text-center'><a href='" + cartItem.url + "' title='" + cartItem.title + "'><img class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'></a></td><td class='text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a><p class='cart-quantity'>" + cartItem.quantity + " &times;</p><p class='cart-price'><span class='money'>" + Shopify.formatMoney(price, moneyFormat) + "</span></p></td><td class='text-center cart-close'><button type='button' "+cartRemove+"' title='Remove' class='btn btn-danger btn-xs'><i class='ion-android-close'></i></button></td></tr>";
+    var cartItem = "<tr><td class='text-center'><a href='" + cartItem.url + "' title='" + cartItem.title + "'><img class='cart-image' src='" + cartItem.image + "' alt='" + cartItem.title + "' title='" + cartItem.title + "'></a></td><td class='text-left info-item'><a class='cart-name' href='" + cartItem.url + "'>" + cartItem.title + "</a><p class='cart-quantity'>" + cartItem.quantity + " &times;</p><p class='cart-price'>" + Shopify.formatMoney(price, moneyFormat) + "</p></td><td class='text-center cart-close'><button type='button' "+cartRemove+"' title='Remove' class='btn btn-danger btn-xs'><i class='ion-android-close'></i></button></td></tr>";
     $('#cart .dropdown-menu > li:first-child .table > tbody').append(cartItem);
   });
   if (cart.item_count < 1) {
@@ -680,8 +681,9 @@ function load(cart){
     $('#cart .dropdown-menu li:not(:first-child):last-child').addClass('show');
   }
   $('#cart > button #cart-total .txt_number').html(cart.item_count);
-  $('#cart > button .total-price').html('<span class=money>'+Shopify.formatMoney(cart.total_price, moneyFormat)+'<i class="fas fa-chevron-down"></i></span>');
-  $('#cart-subtotal').html('<span class=money>'+Shopify.formatMoney(cart.total_price, moneyFormat)+'</span>');
+  $('#cart > button .total-price').html(Shopify.formatMoney(cart.total_price, moneyFormat)+'<i class="fas fa-chevron-down"></i>');
+  $('#cart-subtotal').html(Shopify.formatMoney(cart.total_price, moneyFormat));
+  // $('#cart-subtotal').html('<span class=money>' +  cart.total_price +'</span>');
   {% if settings.show_multiple_currencies %}
   if (Currency.cookie.read() != null) {
     Currency.convertAll(shopCurrency, Currency.cookie.read());

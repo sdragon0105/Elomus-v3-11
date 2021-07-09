@@ -5270,7 +5270,7 @@ margin-top: 5px;
   }
   .common-home .header-inner {
     position: relative;
-    background: #ea3232;
+    background: rgba(126, 126, 126, 0.8);
   }
   .common-home header.hd4 {
     background: #454545;

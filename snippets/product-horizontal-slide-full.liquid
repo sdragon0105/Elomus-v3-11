@@ -11,7 +11,7 @@
     <a class="thumbnail popup-youtube" href="{{ product.description | split:'[video]' | last | split :'[/video]' | first }}">
       <img {% if settings.lazyloading_enable %} class="lazyload" data-{% endif %}src="{{ 'video_400x400.png' | asset_img_url: product_img_size }}" alt="">
     </a>
-    {% endif %}                  
+    {% endif %}
     {% for image in product.images %}
     <div class="item product-zoom-image">
       <a href="{{ image.src | img_url: 'master' }}" class="cloud-zoom main-image" id="product-cloud-zoom" style="width: {{ image.src | split:'x' | first }}px; height: {{ product_img_size | split:'x' | last }}px;"

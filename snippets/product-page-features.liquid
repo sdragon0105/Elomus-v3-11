@@ -117,26 +117,25 @@
     <span id="variantQuantity" class="variant-quantity hidden"></span>
     {% endif %}
     {% include 'product-wishlist2' %}
-    <div id="buy-now"></div>
     {% if product.description contains "[affiliate]" %}
-      {% capture affiliate %} {{ product.description | split:'[affiliate]' | last | split :'[/affiliate]' | first }} {% endcapture %}
-      <button class="button button-cart btn" type="button" onclick="window.open('{{ affiliate | split :'|' | last }}', '_blank')" id="button-cart-affiliate" data-loading-text="{{ 'products.product.loading' | t }}">
-        {{ affiliate | split :'|' | first }}
-      </button>
-
+    {% capture affiliate %} {{ product.description | split:'[affiliate]' | last | split :'[/affiliate]' | first }} {% endcapture %}
+    <button class="button button-cart btn" type="button" onclick="window.open('{{ affiliate | split :'|' | last }}', '_blank')" id="button-cart-affiliate" data-loading-text="{{ 'products.product.loading' | t }}">
+      {{ affiliate | split :'|' | first }}
+    </button>
     {% else %}
-      {% if template != 'product.pre-order' %}
-        <button class="button button-cart btn" type="button" id="button-cart" data-loading-text="{{ 'products.product.loading' | t }}">
-          {{ 'products.product.add_to_cart' | t }}
-        </button>
-        {% if section.settings.show_buy_now %}
-        {{ form | payment_button }}
-        {% endif %}
-      {% elsif template == 'product.pre-order' %}
-        <button class="button button-cart btn" type="button" id="button-cart-buy" data-loading-text="{{ 'products.product.loading' | t }}">
-          {{ 'products.product.pre_order' | t }}
-        </button>
-      {% endif %}
+    <div id="buy-now"></div>
+    {% if template != 'product.pre-order' %}
+    <button class="button button-cart btn" type="button" id="button-cart" data-loading-text="{{ 'products.product.loading' | t }}">
+      {{ 'products.product.add_to_cart' | t }}
+    </button>
+    {% if section.settings.show_buy_now %}
+    {{ form | payment_button }}
+    {% endif %}
+    {% elsif template == 'product.pre-order' %}
+    <button class="button button-cart btn" type="button" id="button-cart-buy" data-loading-text="{{ 'products.product.loading' | t }}">
+      {{ 'products.product.pre_order' | t }}
+    </button>
+    {% endif %}
     {% endif %}
   </div>
   {% endform %}
