@@ -1,8 +1,8 @@
 <!--Service Area Start-->
 <div class="static1-elomus3">
-  {% if section.settings.heading != blank %} 
+  {% if section.settings.heading != blank %}
   <div class="module-title">
-    {% if section.settings.description != blank %}  
+    {% if section.settings.description != blank %}
     <p class="sub-title">{{ section.settings.description }}</p>
     {% endif %}
     <h2>{{ section.settings.heading }}</h2>
@@ -21,7 +21,7 @@
         {% if block.settings.image != blank %}
         <img {% if settings.lazyloading_enable %} class="lazyload" data-{% endif %}src="{{ block.settings.image | img_url: 'master' }}" alt="" />
         {% endif %}
-        {% endif %} 
+        {% endif %}
       </div>
       <h4>{{ block.settings.feature_service_title }}</h4>
       <p>{{ block.settings.feature_service_description }}</p>

@@ -123,7 +123,7 @@
       {{ affiliate | split :'|' | first }}
     </button>
     {% else %}
-    <div id="buy-now"></div>
+    <div id="buy-now" class="google-pay-btn--position"></div>
     {% if template != 'product.pre-order' %}
     <button class="button button-cart btn" type="button" id="button-cart" data-loading-text="{{ 'products.product.loading' | t }}">
       {{ 'products.product.add_to_cart' | t }}

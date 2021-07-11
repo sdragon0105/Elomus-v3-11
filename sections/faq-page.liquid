@@ -21,7 +21,14 @@
 
         </div> <!-- cd-faq-items -->
       </section> <!-- cd-faq -->
-
+      <div class="faq-btn">
+        <a href="{{ section.settings.button_link_1 }}" class="btn btn--secondary btn--small" style="background-color: #6FD2D7 !important;">
+          {{ section.settings.button_label_1 }}
+        </a>
+        <a href="{{ section.settings.button_link_2 }}" class="btn btn--secondary btn--small">
+          {{ section.settings.button_label_2 }}
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -34,9 +41,31 @@
         "type": "paragraph",
         "content": "[Video Guide](https://youtu.be/K2nxwuiLtdg?list=PLvJCnPMUAdwr6XxWVo_f9dkVRh8GNCXoa)"
       },
-	  {
+	    {
         "type": "paragraph",
         "content": "Add blocks for representing each FAQ"
+      },
+      {
+        "type": "text",
+        "id": "button_label_1",
+        "label": "Button label_1",
+        "default": "Optional button"
+      },
+      {
+        "type": "url",
+        "id": "button_link_1",
+        "label": "Link#1"
+      },
+      {
+        "type": "text",
+        "id": "button_label_2",
+        "label": "Button label_2",
+        "default": "Optional button"
+      },
+      {
+        "type": "url",
+        "id": "button_link_2",
+        "label": "Link#2"
       }
     ],
    "blocks": [

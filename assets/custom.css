@@ -2155,3 +2155,39 @@ span.email-notes {
 .stroke-black{
   stroke:#111
 }
+.feature-service--display {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width:768px) {
+  .feature-service--display {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+  }
+  .static1-elomus2 .col {
+    margin-top: 0;
+  }
+  .static1-elomus1 .box {
+    margin-top: 30px !important;
+  }
+  .static1-elomus1 .module-title {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+.google-pay-btn--position {
+  padding-top: 60px;
+}
+@media (max-width:768px) {
+  .google-pay-btn--position {
+    text-align: center !important;
+  }
+}
+
+.faq-btn {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+}
