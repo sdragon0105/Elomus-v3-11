@@ -2191,3 +2191,8 @@ span.email-notes {
   justify-content: space-around;
   padding-top: 50px;
 }
+@media (max-width:768px) {
+  #logo {
+    padding-right: 0 !important;
+  }
+}

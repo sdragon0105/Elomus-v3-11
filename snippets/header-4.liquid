@@ -11,7 +11,7 @@
         {%- assign header_fg_color = settings.header_fg_color -%}
           <style>
             #oc-menu-{{section.id}} .oc-menu-bar {
-              background: {{ bg_color }};
+              background: black;{{ bg_color }};
               color: #FFFFFF;
               padding: 0px 0px 0px 0px;
               position: relative;
@@ -168,7 +168,7 @@
         </div>
         <div class="box box-right">
           {% if section.settings.show_search %}{% include 'header-search' %}{% endif %}
-          {% if section.settings.show_cart %}{% include 'header-cart'%}{% endif %}  
+          {% if section.settings.show_cart %}{% include 'header-cart'%}{% endif %}
           {% if section.settings.show_settings_menu %}
           <div class="box-setting">
             <div class="btn-group">

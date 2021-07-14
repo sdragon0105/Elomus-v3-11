@@ -54,7 +54,7 @@ Get font-families from theme settings
 }
 .hd2 .horizontal-menu .ul-top-items .li-top-item > a:hover,.hd2 .horizontal-menu .ul-top-items .li-top-item.active > a {
   opacity: 1;
-  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);;
   background: none;
 }
 .hd5 .horizontal-menu .ul-top-items .li-top-item > a:hover, .hd5 .horizontal-menu .ul-top-items .li-top-item.active > a,
@@ -94,9 +94,9 @@ Get font-families from theme settings
 }
 /* Horizontal Menu */
 .horizontal-menu {
-  width: 100%;
+  width: 95%;
   position: relative;
-  text-align: center;
+  text-align: right;
   /* padding-right: 100px; */
   padding-left: 100px;
 }
@@ -368,7 +368,7 @@ right: 0;
   border-radius: 30px;
   overflow: hidden;
   padding: 15px;
-  background: #ffffff;
+  background: #252B2D;
   box-shadow: 0 0 18px 1px rgba(0,0,0,0.07);
   -webkit-box-shadow: 0 0 18px 1px rgba(0,0,0,0.07);
 }

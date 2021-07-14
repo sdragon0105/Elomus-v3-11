@@ -39,12 +39,12 @@
 }
 .horizontal-menu .ul-top-items .li-top-item > a:hover,.horizontal-menu .ul-top-items .li-top-item.active > a {
   opacity: 1;
-  border-color: rgba(200, 136, 136, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
   background: rgba(255, 0, 0, 0.1);
 }
 .hd2 .horizontal-menu .ul-top-items .li-top-item > a:hover,.hd2 .horizontal-menu .ul-top-items .li-top-item.active > a {
   opacity: 1;
-  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);;
   background: none;
 }
 .hd5 .horizontal-menu .ul-top-items .li-top-item > a:hover, .hd5 .horizontal-menu .ul-top-items .li-top-item.active > a,
