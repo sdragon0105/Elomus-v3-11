@@ -95,7 +95,7 @@ a:focus,
 a:active,
 a:hover {
   text-decoration: none;
-  color: #ea3232;
+  color: #000000;
 }
 body ::-webkit-scrollbar-track
 {
