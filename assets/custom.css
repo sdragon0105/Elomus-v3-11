@@ -37,7 +37,7 @@ Get font-families from theme settings
   background-color: #ffffff !important;
 }
 p a, li a{
-  color: #ea3232;
+  color: #000000;
 }
 
 .product-info-main #product {
@@ -2157,7 +2157,9 @@ span.email-notes {
 }
 .feature-service--display {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 @media (max-width:768px) {
@@ -2195,4 +2197,10 @@ span.email-notes {
   #logo {
     padding-right: 0 !important;
   }
+}
+#oc-menu-header .ul-top-items .li-top-item.active .a-top-link {
+  color: white !important;
+}
+#oc-menu-header .ul-top-items .li-top-item:hover .a-top-link {
+  color: white !important;
 }
