@@ -1377,11 +1377,13 @@ header .btn-group .dropdown-menu .item-selected{
 .static1-elomus2 .icon i {
   font-size: 34px;
   vertical-align: middle;
-  color: #ea3232;
+  /* color: #ea3232; */
 }
 .static1-elomus2 h3 {
   font-size: 20px;
   margin-top: 25px;
+  color: #ea3232;
+  font-weight: 700;
 }
 .service4.static1-elomus2 h3 {
   font-size: 15px;
