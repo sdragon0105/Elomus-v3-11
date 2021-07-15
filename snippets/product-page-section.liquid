@@ -80,10 +80,24 @@
       <div role="tabpanel" class="tab-pane active" id="description">
         <div class="mobtab" role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab" style="font-size: 30px;">{{ 'products.product.description' | t }}</a></div>
         {% render 'description-videobox' %}
-        <p>
-          {% comment %} {{ product.description | split:"[video]" | first | strip_html }} {% endcomment %}
-          {{ product.description | split:"[summary]" | first | split:"[video]" | first | split:"[tab]" | first | split:"[deal]" | first | split:"[affiliate]" | first }}
+
+        <p class="woocommerce-product-details__short-description">
+          {% comment %} {{ product.description | split:"[video]" | first | strip_html }} {% endcomment%}
         </p>
+{% comment%}
+        <p class="short-des">
+          {% if product.description contains '[summary]' %}
+          {{ product.description | split:'[summary]' | last | split :'[/summary]' | first }}
+          {% else %}
+          {% assign product_summary_words = section.settings.product_summary_words | times: 1 %}
+          {% if section.settings.show_summary_stripped %}
+          {{ product.content | split:"[summary]" | first | split:"[video]" | first | split:"[tab]" | first | split:"[deal]" | first | split:"[affiliate]" | first | strip_html | truncatewords: product_summary_words }}
+          {% else %}
+          {{ product.content | split:"[summary]" | first | split:"[video]" | first | split:"[tab]" | first | split:"[deal]" | first | split:"[affiliate]" | first | truncatewords: product_summary_words }}
+          {% endif %}
+          {% endif %}
+        </p>
+{% endcomment %}
       </div>
       {% if section.settings.show_reviews_tab %}
       <div role="tabpanel" class="tab-pane" id="reviews">

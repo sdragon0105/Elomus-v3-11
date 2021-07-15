@@ -1,6 +1,7 @@
-{% include 'review' %}
+
 <!-- end-rating -->
 <h2 class="product-name" itemprop="name">{{ product.title }}</h2>
+{% include 'review' %}
 {% include 'price', page:true %}
 {% if section.settings.show_summary %}
 <p class="short-des">
