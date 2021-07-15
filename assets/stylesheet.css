@@ -1442,7 +1442,6 @@ header .btn-group .dropdown-menu .item-selected{
   margin-bottom: 20px;
 }
 .static2-elomus1 .banner-text a, .static2-elomus1 .banner-text-alt a {
-  text-transform: uppercase;
   color: #ffffff;
   line-height: 40px;
   display: inline-block;
@@ -1450,8 +1449,8 @@ header .btn-group .dropdown-menu .item-selected{
   font-size: 31px;
   padding: 10px 20px;
   border: 1px solid rgba(255,255,255,0.7);
-  border-radius: 25px;
-  -webkit-border-radius: 25px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
 }
 .static2-elomus1 .banner-text a:hover, .static2-elomus1 .banner-text-alt a:hover {
   color: #ea3232;
@@ -2237,15 +2236,15 @@ header .btn-group .dropdown-menu .item-selected{
   font-family: "Belgrano-Regular" !important;
 }
 .static5-elomus2 a {
-  font-size: 16px;
+  font-size: 31px;
   color: #ffffff;
   line-height: 40px;
   display: inline-block;
   vertical-align: top;
   border: 1px solid rgba(255,255,255,0.7);
-  padding: 0 25px;
-  border-radius: 25px;
-  -webkit-border-radius: 25px;
+  padding: 10px 25px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
   margin: 5px 10px;
 }
 .static5-elomus2 a.link:before {
@@ -2738,7 +2737,7 @@ header .btn-group .dropdown-menu .item-selected{
 }
 .module-title .sub-title {
   font-size: 20px;
-  color: #7e7e7e;
+  color: #333333;
   text-transform: none;
   font-family: 'LATO';
   margin-bottom: 3px;
@@ -4644,7 +4643,7 @@ footer .list-unstyled.text-content li a{color: #7e7e7e;display: block;font-weigh
   padding: 10px;
 }
 .product-info-main .product-name {
-  font-size: 24px;
+  font-size: 42px;
   text-transform: capitalize;
   margin: 2px 0 14px 0;
   border: 0;
@@ -4655,7 +4654,7 @@ footer .list-unstyled.text-content li a{color: #7e7e7e;display: block;font-weigh
   display:block;
   margin-bottom: 15px;
 }
-.product-info-main .price-box .price {font-size: 28px;}
+.product-info-main .price-box .price {font-size: 26px;}
 .product-info-main .price-box p.old-price .price {
   font-size: 20px;
 }

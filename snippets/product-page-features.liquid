@@ -4,18 +4,7 @@
 {% include 'review' %}
 {% include 'price', page:true %}
 {% if section.settings.show_summary %}
-<p class="short-des">
-  {% if product.description contains '[summary]' %}
-  {{ product.description | split:'[summary]' | last | split :'[/summary]' | first }}
-  {% else %}
-  {% assign product_summary_words = section.settings.product_summary_words | times: 1 %}
-  {% if section.settings.show_summary_stripped %}
-  {{ product.content | split:"[summary]" | first | split:"[video]" | first | split:"[tab]" | first | split:"[deal]" | first | split:"[affiliate]" | first | strip_html | truncatewords: product_summary_words }}
-  {% else %}
-  {{ product.content | split:"[summary]" | first | split:"[video]" | first | split:"[tab]" | first | split:"[deal]" | first | split:"[affiliate]" | first | truncatewords: product_summary_words }}
-  {% endif %}
-  {% endif %}
-</p>
+<p class="woocommerce-product-details__short-description"></p>
 {% endif %}
 <ul class="list-unstyled">
   {% if section.settings.product_vendor_enable %}

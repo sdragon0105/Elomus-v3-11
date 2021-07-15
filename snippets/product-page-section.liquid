@@ -81,23 +81,11 @@
         <div class="mobtab" role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab" style="font-size: 30px;">{{ 'products.product.description' | t }}</a></div>
         {% render 'description-videobox' %}
 
-        <p class="woocommerce-product-details__short-description">
+        <p class="woocommerce-product-details__short-description1">
           {% comment %} {{ product.description | split:"[video]" | first | strip_html }} {% endcomment%}
         </p>
-{% comment%}
-        <p class="short-des">
-          {% if product.description contains '[summary]' %}
-          {{ product.description | split:'[summary]' | last | split :'[/summary]' | first }}
-          {% else %}
-          {% assign product_summary_words = section.settings.product_summary_words | times: 1 %}
-          {% if section.settings.show_summary_stripped %}
-          {{ product.content | split:"[summary]" | first | split:"[video]" | first | split:"[tab]" | first | split:"[deal]" | first | split:"[affiliate]" | first | strip_html | truncatewords: product_summary_words }}
-          {% else %}
-          {{ product.content | split:"[summary]" | first | split:"[video]" | first | split:"[tab]" | first | split:"[deal]" | first | split:"[affiliate]" | first | truncatewords: product_summary_words }}
-          {% endif %}
-          {% endif %}
-        </p>
-{% endcomment %}
+        {% render 'product-faq-section' %}
+        {% render 'product-contactus-section' %}
       </div>
       {% if section.settings.show_reviews_tab %}
       <div role="tabpanel" class="tab-pane" id="reviews">
@@ -222,6 +210,13 @@
     var displayDescription = pDescription.substring(0, index);
     $('.short-des').text($(displayDescription).text());
     $('.woocommerce-product-details__short-description').html(displayDescription);
+
+    // var index1 = pDescription.indexOf('<p><strong>===</strong></p>', index+1);
+    // var index2 = pDescription.indexOf('<p><strong>===</strong></p>', index1+2);
+    // console.log(index1, index2);
+    // var displayDescription1 = pDescription.substring(index1, index2);
+    let str = pDescription.split('<p><strong>===</strong></p>');
+    $('.woocommerce-product-details__short-description1').html(str[2]);
 
     // split description content
     var variantAllEl = $('<div>' + variantDesHTML.replace(/\r?\n|\r/g, '')  + '</div>');

@@ -1,0 +1,35 @@
+<!--FAQ -->
+<div class="">
+  <div class="row">
+    <div id="content" class="col-sm-12">
+      {{ page.content }}
+      <section class="cd-faq">
+        <h3>Questions</h3>
+        <div class="cd-faq-items">
+          <ul id="" class="cd-faq-group">
+            <li class="cd-faq-title" style="display:none;"><h2>{{ page_title }}</h2></li>
+            {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+            <li>
+              <a class="cd-faq-trigger" href="#0">{{ block.settings.question }}</a>
+              <div class="cd-faq-content">
+                <p>{{ block.settings.answer }}</p>
+              </div> <!-- cd-faq-content -->
+            </li>
+            {% endfor %}
+            {% endif %}
+          </ul> <!-- cd-faq-group -->
+
+        </div> <!-- cd-faq-items -->
+      </section> <!-- cd-faq -->
+      <br>
+      <div>
+					<h3>To see more of our frequently asked <strong>questions please click <span style="text-decoration: underline;"><a href="https://olarm.myshopify.com/pages/faqs">HERE</a></span>.</strong></h3>
+          <p>Join the conversation via our <strong><a href="https://www.facebook.com/Vanolarm-101294148414125/">FACEBOOK</a></strong> page or chat to us via the contact form below for more infomation:-</p>
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
+<!--End of FAQ Area-->
