@@ -1,4 +1,5 @@
 <div class="static5-elomus2{% if section.settings.bottom_padding %} padding-bottom{% endif %} {% if section.settings.bottom_border %} border-bottom{% endif %}" {% if section.settings.bg-image != blank %}style="background-image: url('{{ section.settings.bg-image | img_url: 'master' }}'); background-size: cover" {% endif %}>
+  <div class="static5-elomus2--mobile" {% if section.settings.bg-image != blank %}style="background-image: url('{{ section.settings.bg-image | img_url: 'master' }}'); " {% endif %}></div>
   <div class="container text-{{ section.settings.ad_align }}">
     {% if section.settings.subheading != blank %}
     <h4>{{ section.settings.subheading }}</h4>
@@ -17,3 +18,21 @@
     {% endif %}
   </div>
 </div>
+{% style %}
+.static5-elomus2--mobile {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  top: 0;
+  display: none;
+}
+
+@media (max-width:768px) {
+  .static5-elomus2--mobile {
+    display: block;
+  }
+}
+{% endstyle %}

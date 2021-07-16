@@ -7,11 +7,11 @@
   </div>
   {% endif %}
   <div class="banner-text">
-    {% if section.settings.description != blank %} 
+    {% if section.settings.description != blank %}
     <p>{{ section.settings.description }}</p>
     {% endif %}
-    {% if section.settings.link_text != blank %} 
-    <a href="{{ section.settings.link }}" class="txt">{{ section.settings.link_text }}</a>
+    {% if section.settings.link_text != blank %}
+    <a href="{{ section.settings.link }}" class="txt txt-btn-style">{{ section.settings.link_text }}</a>
     {% endif %}
   </div>
 </div>

@@ -1436,21 +1436,21 @@ header .btn-group .dropdown-menu .item-selected{
   /*margin-top: 45px;*/
 }
 .static2-elomus1 .banner-text p {
-  font-size: 20px;
+  font-size: 22px;
   color: #ffffff;
   font-family:'LATO';
   margin-bottom: 20px;
 }
 .static2-elomus1 .banner-text a, .static2-elomus1 .banner-text-alt a {
   color: #ffffff;
-  line-height: 40px;
+  line-height: 0.9em;
   display: inline-block;
   vertical-align: top;
   font-size: 31px;
-  padding: 10px 20px;
-  border: 1px solid rgba(255,255,255,0.7);
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
+  padding: 20px 40px;
+  border: 3px solid rgba(255,255,255,0.7);
+  border-radius: 35px ;
+  -webkit-border-radius: 35px;
 }
 .static2-elomus1 .banner-text a:hover, .static2-elomus1 .banner-text-alt a:hover {
   color: #ea3232;
@@ -1887,7 +1887,7 @@ header .btn-group .dropdown-menu .item-selected{
 }*/
 .static4-elomus2 .col-text h3 {
   font-size: 34px;
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 0;
   line-height: 40px;
   margin-bottom: 28px;
@@ -2736,7 +2736,7 @@ header .btn-group .dropdown-menu .item-selected{
   text-align: center;
 }
 .module-title .sub-title {
-  font-size: 20px;
+  font-size: 22px;
   color: #333333;
   text-transform: none;
   font-family: 'LATO';
@@ -2758,16 +2758,6 @@ header .btn-group .dropdown-menu .item-selected{
   font-family: Lato;
   font-weight: 400;
   padding-bottom: 25px;
-}
-.module-title h2:after,.module-title h2:before {
-  content: "";
-  width: 40px;
-  height: 1px;
-  background: #ea3232;
-  position: absolute;
-  bottom: 0;
-  left:50%;
-  margin-left: -10px;
 }
 .module-title h2:before {
   bottom: 6px;
@@ -5796,4 +5786,9 @@ margin-top: 5px;
 .special-row{
   background: #f8f8f8;
   padding-top: 60px;
+}
+.txt-btn-style {
+  border-color: #8F8080 !important;
+  border-radius: 35px 35px 35px 35px;
+  box-shadow: 14px 11px 10px 0px rgb(0 0 0 / 50%) inset;
 }
