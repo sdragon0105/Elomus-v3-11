@@ -1432,6 +1432,7 @@ header .btn-group .dropdown-menu .item-selected{
   text-align: center;
 }
 .static2-elomus1 .banner-text {
+  /* height: 100px; */
   padding: 40px 15px;
   /*margin-top: 45px;*/
 }
@@ -1931,7 +1932,7 @@ header .btn-group .dropdown-menu .item-selected{
   background: transparent;
 }
 .static4-elomus2 .col-text a:before, .static4-elomus2 .col-text button:before {
-  content:"\e64a";
+  /* content:"\e64a"; */
   font-size: 18px;
   font-family: 'Stroke-Gap-Icons';
   margin-right: 7px;
