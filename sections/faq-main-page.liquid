@@ -11,7 +11,7 @@
             {% for block in section.blocks %}
             <li>
               <a class="cd-faq-trigger" href="#0">{{ block.settings.question }}</a>
-              <div class="cd-faq-content">
+              <div class="cd-faq-content{% if forloop.first == true %} active{% endif %}">
                 <p>{{ block.settings.answer }}</p>
               </div> <!-- cd-faq-content -->
             </li>
