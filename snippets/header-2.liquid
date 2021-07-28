@@ -3,6 +3,43 @@
   <div class="header-inner fix" >
     <div class="container-inner">
       {% include 'logo' %}
+
+      <div class="box box-right">
+        {% if section.settings.show_search %}{% include 'header-search' %}{% endif %}
+        {% if section.settings.show_cart %}{% include 'header-cart'%}{% endif %}
+        {% if section.settings.show_settings_menu %}
+        <div class="box-setting">
+          <div class="btn-group">
+            <div class="dropdown-toggle setting-button" data-toggle="dropdown"></div>
+            <div class="dropdown-menu setting-content">
+              <div class="account">
+                <button class="btn btn-link btn-link-current">{{ 'homepage.navigation.my_account' | t }} <i class="icon-arrow-down"></i></button>
+                <div class="content"  id="top-links">
+                  <ul class="ul-account list-unstyled">
+                    {% if shop.customer_accounts_enabled %}
+                    {% if customer %}
+                    <li><a href="/account"><span>{{ 'homepage.navigation.my_account' | t }}</span></a></li>
+                    <li><a href="/account/logout" id="customer_logout_link"><span>{{ 'layout.customer.log_out' | t }}</span></a></li>
+                    {% else %}
+                    <li><a href="/account/login" id="customer_login_link"><span>{{ 'layout.customer.sign_in' | t }}</span></a></li>
+                    {% if shop.customer_accounts_optional %}
+                    <li><a href="/account/register" id="customer_register_link"><span>{{ 'layout.customer.create_account' | t }}</span></a></li>
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+                    {% if settings.hide_wishlist == false %}
+                    <li><a href="/pages/wishlist"><span>{{ 'homepage.navigation.wish_list' | t }}</span></a></li>
+                    {% endif %}
+                    <li><a href="/cart"><span>{{ 'homepage.navigation.shopping_cart' | t }}</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              {% include 'header-currency' %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
       <div class="box box-left">
         {% assign color_skin = settings.color_skin %}
         {% assign hd_menu_color = settings.hd_menu_color %}
@@ -164,42 +201,6 @@
           }
         </style>
         {% include 'header-mob-nav' %}
-      </div>
-      <div class="box box-right">
-        {% if section.settings.show_search %}{% include 'header-search' %}{% endif %}
-        {% if section.settings.show_cart %}{% include 'header-cart'%}{% endif %}  
-        {% if section.settings.show_settings_menu %} 
-        <div class="box-setting">
-          <div class="btn-group">
-            <div class="dropdown-toggle setting-button" data-toggle="dropdown"></div>
-            <div class="dropdown-menu setting-content">
-              <div class="account">
-                <button class="btn btn-link btn-link-current">{{ 'homepage.navigation.my_account' | t }} <i class="icon-arrow-down"></i></button>
-                <div class="content"  id="top-links">
-                  <ul class="ul-account list-unstyled">
-                    {% if shop.customer_accounts_enabled %}
-                    {% if customer %}
-                    <li><a href="/account"><span>{{ 'homepage.navigation.my_account' | t }}</span></a></li>
-                    <li><a href="/account/logout" id="customer_logout_link"><span>{{ 'layout.customer.log_out' | t }}</span></a></li>
-                    {% else %}
-                    <li><a href="/account/login" id="customer_login_link"><span>{{ 'layout.customer.sign_in' | t }}</span></a></li>
-                    {% if shop.customer_accounts_optional %}
-                    <li><a href="/account/register" id="customer_register_link"><span>{{ 'layout.customer.create_account' | t }}</span></a></li>
-                    {% endif %}
-                    {% endif %}
-                    {% endif %}
-                    {% if settings.hide_wishlist == false %}
-                    <li><a href="/pages/wishlist"><span>{{ 'homepage.navigation.wish_list' | t }}</span></a></li>
-                    {% endif %}
-                    <li><a href="/cart"><span>{{ 'homepage.navigation.shopping_cart' | t }}</span></a></li>
-                  </ul>
-                </div>
-              </div>
-              {% include 'header-currency' %}
-            </div>
-          </div>
-        </div>
-        {% endif %}
       </div>
       <div class="clearfix"></div>
     </div>

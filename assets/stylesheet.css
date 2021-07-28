@@ -5192,13 +5192,12 @@ margin-top: 5px;
   .hd1 .header-inner {
     padding: 0 30px;
   }
-  .logo-container {
-    margin-left: 50px;
-  }
   header .box-left {
-    right: auto;
+    left: auto;
     z-index: 2;
-    left: 0;
+  }
+  header .box-right {
+    right: 55px;
   }
   header.hd3alt .box-left {
     left: 2%;
