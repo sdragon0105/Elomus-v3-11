@@ -1,7 +1,7 @@
 <!--Service Area Start-->
 <div class="static1-elomus2">
   {% if section.settings.heading != blank %}
-  <div class="module-title">
+  <div class="module-title module-title--animation">
     {% if section.settings.description != blank %}
     <p class="sub-title">{{ section.settings.description }}</p>
     {% endif %}
@@ -11,7 +11,7 @@
   <div class="row feature-service--display">
     {% if section.blocks.size > 0 %}
     {% for block in section.blocks limit:6 %}
-    <div class="col col-xs-12">
+    <div class="col col-xs-12 item-animation">
       <div class="icon">
         {% if block.settings.use_feature_service_icon %}
         {% if block.settings.feature_service_icon != blank %}
@@ -45,4 +45,25 @@
     {% endif %}
   </div>
 </div>
+
+{% style %}
+.module-title--animation {
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: -2s;
+}
+@keyframes example {
+  50%  { left:-200px;}
+  75%  { left:0px;}
+}
+.item-animation {
+  animation-name: example1;
+  animation-duration: 4s;
+  animation-delay: -2s;
+}
+@keyframes example1 {
+  50%  { left:-200px;}
+  75%  { left:0px;}
+}
+{% endstyle %}
 <!--End of Service Area-->

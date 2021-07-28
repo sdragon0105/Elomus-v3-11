@@ -1,12 +1,12 @@
 <div class="main-row about" data-section-id="{{ section.id }}">
   <div class="container">
     <div class="row">
-      {% if section.settings.heading != blank %}  
+      {% if section.settings.heading != blank %}
       <div class="module-title">
         <h2><span>{{ section.settings.heading }}</span></h2>
       </div>
       {% endif %}
-      {% if section.settings.description != blank %}  
+      {% if section.settings.description != blank %}
       <div class="module-description"><p>{{ section.settings.description }}</p></div>
       {% endif %}
 
@@ -40,7 +40,7 @@
                                                                       });
                                                                       });
                                                                       // ]]>
-          </script>																																																																																										
+          </script>
         </div>
       </div>
 
@@ -62,19 +62,19 @@
         {% assign member_count = 1 %}
         {% assign cols = '6 col-sm-offset-3' %}
         {% when 'two_service' %}
-        {% assign member_count = 2 %}                
+        {% assign member_count = 2 %}
         {% assign cols = 6 %}
         {% when 'three_service' %}
         {% assign member_count = 3 %}
         {% assign cols = 4 %}
         {% when 'four_service' %}
-        {% assign member_count = 4 %}                
+        {% assign member_count = 4 %}
         {% assign cols = 3 %}
         {% else %}
 
         {% endcase %}
 
-        {% if block.settings.heading != blank %}  
+        {% if block.settings.heading != blank %}
         <h2 class="text-center">{{ block.settings.heading }}</h2>
         {% endif %}
 
@@ -98,6 +98,6 @@
       {% endfor %}
       {% endif %}
 
-    </div>    
+    </div>
   </div>
-</div> 
+</div>
