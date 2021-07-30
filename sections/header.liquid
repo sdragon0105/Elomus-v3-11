@@ -1,7 +1,10 @@
 <!--Start of Header Area-->
 {% include section.settings.header_layout %}
 <!--End of Header Area-->
-{% include 'breadcrumb' %}
+{% comment %}
+ {% include 'breadcrumb' %}
+{% endcomment %}
+<div style="width: 100%; height: 50px;"></div>
 <script type="text/javascript">
   $(document).ready(function() {
     // Move menu below slider
@@ -21,11 +24,11 @@
         });
       });
     /*--------------------------
-    Newsletter Popup Js 
----------------------------- */ 
+    Newsletter Popup Js
+---------------------------- */
       $("#newsletter-popup-conatiner").mouseup(function(e){
         var popContainer = $("#newsletter-popup-conatiner");
-        var newsLatterPop = $("#newsletter-pop-up"); 
+        var newsLatterPop = $("#newsletter-pop-up");
         if(e.target.id != newsLatterPop.attr('id') && !newsLatterPop.has(e.target).length)
         {
           popContainer.fadeOut();
