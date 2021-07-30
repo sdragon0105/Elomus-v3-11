@@ -11,13 +11,13 @@
           </a>
           {% endif %}
           {% if section.settings.image == blank %}
-          <div class="footer-title"><h5>{{ 'layout.footer.contact' | t }}</h5></div>
+          <div class="footer-title"><h5>{{ 'layout.footer.about' | t }}</h5></div>
           {% endif %}
           <div class="footer-content">
             {% if section.settings.footer_about_us %}
-            <p>{{ section.settings.footer_about_us }}</p>
+            <p style="color: #d2d2d2; padding-top: 15px;">{{ section.settings.footer_about_us }}</p>
             {% endif %}
-            <ul class="footer-contact">
+            <!-- <ul class="footer-contact">
               {% if section.settings.footer_address != blank %}
               <li class="address">{{ section.settings.footer_address }}</li>
               {% endif %}
@@ -27,11 +27,18 @@
               {% if section.settings.footer_email != blank %}
               <li class="email">{{ section.settings.footer_email }}</li>
               {% endif %}
-            </ul>
+            </ul> -->
+          </div>
+
+          <div class="footer-title"><h5>{{ "Company Info & Trading Terms" }}</h5></div>
+
+          <div class="footer-content">
+            <p style="color: #d2d2d2; padding-top: 15px;">{{ "Our "}}<a class="privacy_policy" href="https://vanolarm.co.uk/privacy-policy/">Privacy Policy</a>{{" and Our "}}<a class="privacy_policy" href="https://vanolarm.co.uk/terms-and-conditions/">T&Cs ( see section 20 for Returns Policy).</a></p>
+            <p style="color: #d2d2d2; padding-top: 15px;">{{ section.settings.footer_address }}</p>
           </div>
         </div>
         <div class="col col2 col-md-2 col-sm-6 col-xs-12 col-footer">
-          <div class="footer-title">
+          <div class="">
             <h5>{{ linklists[section.settings.footer_menu_1].title }}</h5>
           </div>
           <div class="footer-content">
@@ -43,7 +50,7 @@
           </div>
         </div>
         <div class="col col2 col-md-2 col-sm-6 col-xs-12 col-footer">
-          <div class="footer-title">
+          <div class="">
             <h5>{{ linklists[section.settings.footer_menu_2].title }}</h5>
           </div>
           <div class="footer-content">
@@ -85,7 +92,7 @@
             </li>
             {% endfor %}
           </ul>
-        </div> 
+        </div>
         {% endunless %}
         {% endif %}
         {% include 'social-button' %}
@@ -114,13 +121,24 @@
       });
     });
     // footer toggle
-    if (jQuery(window).width() < 992) {   
-      jQuery('.footer-top .footer-title').click(function(){     
-        jQuery(this).parent('.col').toggleClass('active').siblings().removeClass('active'); 
+    if (jQuery(window).width() < 992) {
+      jQuery('.footer-top .footer-title').click(function(){
+        jQuery(this).parent('.col').toggleClass('active').siblings().removeClass('active');
         jQuery(this).next('.col .footer-content').toggle(300);
-        jQuery(this).parent('.col.active').siblings().children('.col .footer-content').slideUp(300); 
-      }); 
+        jQuery(this).parent('.col.active').siblings().children('.col .footer-content').slideUp(300);
+      });
 
     }
   });
 </script>
+
+{% style%}
+.privacy_policy {
+  color: #d2d2d2;
+  font-style: italic;
+  font-weight: 700;
+}
+.privacy_policy:hover {
+  color: white;
+}
+{% endstyle%}

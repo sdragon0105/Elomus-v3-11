@@ -208,10 +208,12 @@
   "contact": {
     "form": {
       "name": "Name",
+      "firstname": "First Name",
+      "lastname": "Last Name",
       "email": "Email",
       "phone": "Phone",
       "message": "Message",
-      "send": "Send",
+      "send": "Submit",
       "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
       "page_heading": "Contact info",
       "leave_msg": "Leave a Message",
