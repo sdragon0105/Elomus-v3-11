@@ -12,6 +12,9 @@ $(document).ready(function () {
     $('#light-box-position').val(pos);
     $('.additional-images .owl-item .item').removeClass('img-active');
     $(this).closest('.item').addClass('img-active');
+
+    $('.additional-sub-img .item').removeClass('img-active');
+    $(this).closest('.item').addClass('img-active');
   });
 
   var slider = $('#slide_count').val();
@@ -40,7 +43,7 @@ var oczoom = {
           items: (slider && slider != 3) ? slider : 3
         },
         1200: {
-          items: slider ? slider : 4 
+          items: slider ? slider : 4
         }
       }
     });
