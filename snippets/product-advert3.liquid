@@ -1,15 +1,15 @@
 <div class="banner-static static2-elomus2{% if section.settings.bottom_padding %} padding-bottom{% endif %} {% if section.settings.bottom_border %} border-bottom{% endif %}">
   {% if section.settings.heading != blank %}
   <div class="module-title">
-    {% if section.settings.subheading != blank %}  
+    {% if section.settings.subheading != blank %}
     <p class="sub-title1">{{ section.settings.subheading }}</p>
     {% endif %}
-    <h2>{{ section.settings.heading }}</h2>
+    <h2 class="">{{ section.settings.heading }}</h2>
   </div>
   {% endif %}
   <div class="row">
-    {% if section.settings.image_position == 'left' %} 
-    <div class="col col-sm-6 col-xs-12">
+    {% if section.settings.image_position == 'left' %}
+    <div class="col col-sm-6 col-xs-12 image-wrapper">
       {% if section.settings.bg-image %}
       <div class="image">
         <a href="{{ section.settings.link }}">
@@ -19,20 +19,20 @@
       {% endif %}
     </div>
     {% endif %}
-    <div class="col col-text col-sm-6 col-xs-12 text-{{ section.settings.ad_align }}" style="text-align:{{ section.settings.ad_align }}">
-      {% if section.settings.description != blank %} 
-      <div>{{ section.settings.description }}</div>
+    <div class="col col-text col-sm-6 col-xs-12 text-{{ section.settings.ad_align }} text-wrapper" style="text-align:{{ section.settings.ad_align }}">
+      {% if section.settings.description != blank %}
+      <div class="text-anim">{{ section.settings.description }}</div>
       {% endif %}
-      {% if section.settings.link_text != blank %} 
+      {% if section.settings.link_text != blank %}
       <div class="box-links">
         <a href="{{ section.settings.link }}" class="txt">{{ section.settings.link_text }}</a>
-        {% if section.settings.link_text_2 != blank %} 
+        {% if section.settings.link_text_2 != blank %}
         <a href="{{ section.settings.link_2 }}" class="txt2">{{ section.settings.link_text_2 }}</a>
         {% endif %}
       </div>
       {% endif %}
     </div>
-    {% if section.settings.image_position == 'right' %} 
+    {% if section.settings.image_position == 'right' %}
     <div class="col col-sm-6 col-xs-12">
       {% if section.settings.bg-image %}
       <div class="image">
@@ -45,3 +45,93 @@
     {% endif %}
   </div>
 </div>
+
+{% style %}
+@media (prefers-reduced-motion: no-preference) {
+  .header-title--animation {
+    animation-name: example1;
+    animation-duration: 4s;
+    animation-delay: -2s;
+  }
+}
+@keyframes example1 {
+  50%  {top:-100px;}
+  75%  {top:0px;}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .image--animation {
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-delay: -2s;
+  }
+}
+@keyframes example {
+  50%  {left:-300px;}
+  75%  {left:0px;}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .text--animation {
+    position: relative;
+    animation-name: example2;
+    animation-duration: 4s;
+    animation-delay: -2s;
+  }
+}
+@keyframes example2 {
+  50%  {right:-300px;}
+  75%  {right:0px;}
+}
+{% endstyle %}
+<!--End of Service Area-->
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const square = entry.target.querySelector('.module-title');
+
+    if (entry.isIntersecting) {
+      square.classList.add('header-title--animation');
+	    return; // if we added the class, exit the function
+    }
+
+    // We're not intersecting, so remove the class!
+    square.classList.remove('header-title--animation');
+  });
+});
+observer.observe(document.querySelector('.static2-elomus2'));
+
+const observer1 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const square1 = entry.target.querySelector('.image');
+
+    if (entry.isIntersecting) {
+      square1.classList.add('image--animation');
+	    return; // if we added the class, exit the function
+    }
+
+    // We're not intersecting, so remove the class!
+    square1.classList.remove('image--animation');
+  });
+});
+observer1.observe(document.querySelector('.image-wrapper'));
+
+const observer2 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const square2 = entry.target.querySelector('.text-anim');
+
+    if (entry.isIntersecting) {
+      square2.classList.add('text--animation');
+	    return; // if we added the class, exit the function
+    }
+
+    // We're not intersecting, so remove the class!
+    square2.classList.remove('text--animation');
+  });
+});
+observer2.observe(document.querySelector('.text-wrapper'));
+
+
+</script>

@@ -1,7 +1,7 @@
 <!--Service Area Start-->
 <div class="static1-elomus2">
   {% if section.settings.heading != blank %}
-  <div class="module-title module-title--animation">
+  <div class="module-title">
     {% if section.settings.description != blank %}
     <p class="sub-title">{{ section.settings.description }}</p>
     {% endif %}
@@ -47,10 +47,12 @@
 </div>
 
 {% style %}
-.module-title--animation {
-  animation-name: example;
-  animation-duration: 4s;
-  animation-delay: -2s;
+@media (prefers-reduced-motion: no-preference) {
+  .module-title--animation {
+    animation-name: example1;
+    animation-duration: 4s;
+    animation-delay: -2s;
+  }
 }
 @keyframes example {
   50%  { left:-200px;}
@@ -67,3 +69,21 @@
 }
 {% endstyle %}
 <!--End of Service Area-->
+
+<script>
+// const observer = new IntersectionObserver(entries => {
+//   entries.forEach(entry => {
+//     const square = entry.target.querySelector('.module-title');
+
+//     if (entry.isIntersecting) {
+//       square.classList.add('module-title--animation');
+// 	  return; // if we added the class, exit the function
+//     }
+
+//     // We're not intersecting, so remove the class!
+//     square.classList.remove('module-title--animation');
+//   });
+// });
+
+// observer.observe(document.querySelector('.static1-elomus2'));
+</script>
