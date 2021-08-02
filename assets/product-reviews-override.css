@@ -53,6 +53,9 @@
 .spr-header {
     display: none !important;
 }
+.spr-form-input-textarea {
+    height: 100px !important;
+}
 
 @media screen and (max-width: 768px){
     .spr-container {
