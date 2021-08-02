@@ -40,7 +40,7 @@
             <span>{{ 'products.product.brand' | t }}: </span>{{ product.vendor | link_to_vendor }}
           </p>
           {% endif %}
-          {% include 'review' %}        
+          {% include 'review' %}
           {% if settings.grid_color_swatches != 'false' and settings.product_grid_img_carousel == false%}
           {% if product.available and product.variants.size > 1 %}
           {% include 'swatch-grid' with 'Color' %}

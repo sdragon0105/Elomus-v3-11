@@ -1,1 +1,11 @@
+<!-- <script src="{{ 'product-reviews-override.js' | asset_url }}"></script> -->
 <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+
+<script>
+
+    let container = document.querySelector('#shopify-product-reviews');
+    let children = container.children[1];
+    let children1 = children.children[1];
+    console.log(children1);
+    console.log(children1.children);
+</script>

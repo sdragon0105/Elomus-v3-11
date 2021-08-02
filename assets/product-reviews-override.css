@@ -1,0 +1,61 @@
+.spr-icon {
+    color: black !important;
+}
+.spr-review-header-title {
+    display: none !important;
+}
+.spr-review-footer {
+    display: none !important;
+}
+.spr-review-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    flex-direction: row-reverse !important;
+}
+.spr-review-header-byline {
+    font-style: normal !important;
+}
+.spr-review-content-body {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #333333;
+}
+.spr-review {
+    border: 1px solid #ccc;
+    padding: 10px !important;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.spr-container {
+    border: none !important;
+}
+.spr-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.spr-content {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.spr-form {
+    display: block !important;
+}
+.spr-form-contact::before {
+    display: none !important;
+}
+.spr-form-contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
+.spr-header {
+    display: none !important;
+}
+
+@media screen and (max-width: 768px){
+    .spr-container {
+        padding: 0 !important;
+    }
+}
