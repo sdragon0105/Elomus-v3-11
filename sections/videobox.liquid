@@ -16,7 +16,7 @@
                   $(this).hide('fast');
 
                 {% if section.settings.video_type == 'youtube' %}
-                $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="https://www.youtube.com/embed/{{ section.settings.video_src }}?rel=0&showinfo=0&autoplay={{ section.settings.video_autoplay }}&controls=0" frameborder="0" allowfullscreen></iframe>');
+                $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="https://www.youtube.com/embed/{{ section.settings.video_src }}?rel=0&showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>');
                   {% elsif section.settings.video_type == 'vimeo' %}
                   $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="https://player.vimeo.com/video/{{ section.settings.video_src }}?color=ffffff&title=0&byline=0&portrait=0&autoplay={{ section.settings.video_autoplay }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
                   {% elsif section.settings.video_type == 'mp4' %}

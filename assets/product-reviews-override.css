@@ -42,6 +42,9 @@
 .spr-form {
     display: block !important;
 }
+.new-review-form {
+    display: block !important;
+}
 .spr-form-contact::before {
     display: none !important;
 }
@@ -56,9 +59,12 @@
 .spr-form-input-textarea {
     height: 100px !important;
 }
-
-@media screen and (max-width: 768px){
-    .spr-container {
-        padding: 0 !important;
-    }
+.spr-container {
+    padding: 0 !important;
+}
+.spr-reviews {
+    margin: 0 !important;
+}
+.spr-review:first-child {
+    margin-top: 0 !important;
 }
