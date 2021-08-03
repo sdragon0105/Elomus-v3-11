@@ -17,7 +17,7 @@
 
                   {% if section.settings.video_type == 'youtube' %}
                   // $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="" frameborder="0" allowfullscreen></iframe>');
-                    $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="https://www.youtube.com/embed/{{ section.settings.video_src }}?rel=0&showinfo=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+                    $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="https://www.youtube.com/embed/{{ section.settings.video_src }}" frameborder="0" autoplay="autoplay" allow="autoplay; fullscreen" allowfullscreen></iframe>');
                   {% elsif section.settings.video_type == 'vimeo' %}
                     $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="https://player.vimeo.com/video/{{ section.settings.video_src }}?color=ffffff&title=0&byline=0&portrait=0&autoplay={{ section.settings.video_autoplay }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
                   {% elsif section.settings.video_type == 'mp4' %}
@@ -104,19 +104,19 @@
 {% endschema %}
 
 <script>
-// const observer111 = new IntersectionObserver(entries => {
-//   entries.forEach(entry => {
-//     const square111 = entry.target.querySelector('.added_video1');
+const observer111 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const square111 = entry.target.querySelector('.added_video1');
 
 
-//     if (entry.isIntersecting) {
-//       square111.setAttribute("src", "https://www.youtube.com/embed/{{ section.settings.video_src }}?rel=0&showinfo=0&autoplay=1");
-//       return; // if we added the class, exit the function
-//     }
+    if (entry.isIntersecting) {
+      square111.setAttribute("src", "https://www.youtube.com/embed/{{ section.settings.video_src }}?autoplay=1&muted=1&loop=1&playsinline=1");
+      return; // if we added the class, exit the function
+    }
 
-//     // // We're not intersecting, so remove the class!
-//     square111.setAttribute("src", "https://www.youtube.com/embed/{{ section.settings.video_src }}?rel=0&showinfo=0");
-//   });
-// });
-// observer111.observe(document.querySelector('.static_video1'));
+    // // We're not intersecting, so remove the class!
+    square111.setAttribute("src", "https://www.youtube.com/embed/{{ section.settings.video_src }}");
+  });
+});
+observer111.observe(document.querySelector('.static_video1'));
 </script>
