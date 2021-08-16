@@ -35,12 +35,14 @@
     </a>
     {% endif %}
     {% for image in product.images %}
-    <div class="item {% if forloop.first == true %}img-active{% endif %}">
-      <a class="cloud-zoom-gallery sub-image" id="product-image-options-" href="{{ image.src  | img_url: 'master' }}" title="{{ featured_img_alt }}"
-         rel="useZoom: 'product-cloud-zoom', smallImage: '{{ image.src | img_url: product_img_size }}'" data-pos="{{ forloop.index }}">
-        <img {% if settings.lazyloading_enable %} class="lazyload" data-{% endif %}src="{{ image.src | img_url: product_img_size }}" title="{{ featured_img_alt }}" alt="{{ featured_img_alt }}" />
-      </a>
-    </div>
+      {% if forloop.length > 1  %}
+        <div class="item {% if forloop.first == true %}img-active{% endif %}">
+          <a class="cloud-zoom-gallery sub-image" id="product-image-options-" href="{{ image.src  | img_url: 'master' }}" title="{{ featured_img_alt }}"
+            rel="useZoom: 'product-cloud-zoom', smallImage: '{{ image.src | img_url: product_img_size }}'" data-pos="{{ forloop.index }}">
+            <img {% if settings.lazyloading_enable %} class="lazyload" data-{% endif %}src="{{ image.src | img_url: product_img_size }}" title="{{ featured_img_alt }}" alt="{{ featured_img_alt }}" />
+          </a>
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
   <!-- end wrapper-img-additional -->
