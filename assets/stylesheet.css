@@ -643,6 +643,7 @@ header .box-right {
   top: 50%;
   margin-top: -20px;
   right: 0;
+  z-index: 1;
 }
 header.hd3alt .box-right {
   right: 2%;
