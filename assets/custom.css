@@ -489,7 +489,7 @@ img[alt*="topbanner"] {
 /* dynamic buynow checkout button */
 
 .product-info-main .button-cart{
-  width: 100%;
+  width: 35%;
 }
 .shopify-payment-button__button--unbranded{
   margin-top: 10px !important;

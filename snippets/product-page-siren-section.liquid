@@ -78,7 +78,7 @@
     {% if section.settings.show_description_tab %}
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="description">
-        <div class="mobtab" role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab" style="font-size: 30px;">{{ 'products.product.description' | t }}</a></div>
+        <div class="mobtab" role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab" style="font-size: 25px;">{{ 'products.product.description' | t }}</a></div>
           <p class="woocommerce-product-details__short-description1">
           {% comment %} {{ product.description | split:"[video]" | first | strip_html }} {% endcomment%}
           </p>
@@ -522,3 +522,9 @@
 {% if section.settings.show_variant_swatches != 'false' %}
 {% include 'linked-options' %}
 {% endif %}
+
+{% style %}
+.woocommerce-product-details__short-description1 {
+  margin-left: 40px;
+}
+{% endstyle %}
