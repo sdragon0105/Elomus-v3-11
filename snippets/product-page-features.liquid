@@ -17,23 +17,23 @@
   <li {% if section.settings.product_stock_enable == false %} style="display:none;"{% endif %} >
     {{ 'products.product.availability' | t }}:
     <script>
-      var inv_qty = {};
-      {% for var in product.variants %}
-      inv_qty[{{- var.id -}}] = {{ var.inventory_quantity | default: 0 }};
-      {% endfor %}
+      // var inv_qty = {};
+      // {% for var in product.variants %}
+      // inv_qty[{{- var.id -}}] = {{ var.inventory_quantity | default: 0 }};
+      // {% endfor %}
     </script>
     {% if product.variants.first.inventory_management == "shopify" %}
-    {% if product.variants.first.inventory_quantity >= 10 %}
-    <span class="ex-text">{{ 'products.product.in_stock' | t }}</span>
-    {% elsif product.variants.first.inventory_quantity > 0 and product.variants.first.inventory_quantity < 10  %}
-    <span style="font-weight:bold; color:orange" class="ex-text">{{ product.variants.first.inventory_quantity }} {{ 'products.product.in_stock' | t }}</span>
+      {% if product.variants.first.inventory_quantity >= 10 %}
+        <span class="ex-text">{{ product.variants.first.inventory_quantity }} {{ 'products.product.in_stock' | t }}</span>
+      {% elsif product.variants.first.inventory_quantity > 0 and product.variants.first.inventory_quantity < 10  %}
+        <span style="font-weight:bold; color:orange" class="ex-text">{{ product.variants.first.inventory_quantity }} {{ 'products.product.in_stock' | t }}</span>
+      {% else %}
+        <span style="font-weight:bold; color:red" class="ex-text">{{ 'products.product.out_stock' | t }}</span>
+      {% endif %}
     {% else %}
-    <span style="font-weight:bold; color:red" class="ex-text">{{ 'products.product.out_stock' | t }}</span>
-    {% endif %}
-    {% else %}
-    <span style="" class="ex-text">
-      {% if product.available %} {{ 'products.product.in_stock' | t }}{% else %} {{ 'products.product.out_stock' | t }}{% endif %}
-    </span>
+      <span style="" class="ex-text">
+        {% if product.available %} {{ product.variants.first.inventory_quantity }} {{ 'products.product.in_stock' | t }}{% else %} {{ 'products.product.out_stock' | t }}{% endif %}
+      </span>
     {% endif %}
   </li>
 
