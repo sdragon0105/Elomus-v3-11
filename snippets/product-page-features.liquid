@@ -1,7 +1,10 @@
 
 <!-- end-rating -->
 <h2 class="product-name" itemprop="name">{{ product.title }}</h2>
-{% include 'review' %}
+{% if template == 'product' %}
+  {% include 'review' %}
+{% endif %}
+
 {% include 'price', page:true %}
 {% if section.settings.show_summary %}
 <p class="woocommerce-product-details__short-description"></p>
@@ -10,7 +13,7 @@
   {% if section.settings.product_vendor_enable %}
   <li>{{ 'products.product.brand' | t }}: {{ product.vendor | link_to_vendor }}</li>
   {% endif %}
-  <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+  <link itemprop="availability" href="http://schema.org/{% if product.available %} InStock{% else %}OutOfStock{% endif %}">
   <li {% if section.settings.product_stock_enable == false %} style="display:none;"{% endif %} >
     {{ 'products.product.availability' | t }}:
     <script>
