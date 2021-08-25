@@ -344,11 +344,11 @@
         {% endif %}
         if (variant.inventory_management) {
           if (inventory_level >= 10 ) {
-            $('.ex-text').html('{{ 'products.product.in_stock' | t }}').css("color", "#66aa00");
+            $('.ex-text').html('{{ product.variants.first.inventory_quantity }} {{ 'products.product.in_stock' | t }}').css("color", "#66aa00");
                                } else if (inventory_level < 10 && inventory_level > 0) {
-              $('.ex-text').html(inventory_level +' {{ 'products.product.in_stock' | t }}').css("color", "orange");
+              $('.ex-text').html(inventory_level +'{{ product.variants.first.inventory_quantity }} {{ 'products.product.in_stock' | t }}').css("color", "orange");
                                  } else {
-                                 $('.ex-text').html('{{ 'products.product.out_stock' | t }}').css("color", "red");
+                                 $('.ex-text').html('{{ product.variants.first.inventory_quantity }}{{ 'products.product.out_stock' | t }}').css("color", "red");
                                                     }
                                                     }
                                                     } else {

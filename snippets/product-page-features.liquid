@@ -17,10 +17,10 @@
   <li {% if section.settings.product_stock_enable == false %} style="display:none;"{% endif %} >
     {{ 'products.product.availability' | t }}:
     <script>
-      // var inv_qty = {};
-      // {% for var in product.variants %}
-      // inv_qty[{{- var.id -}}] = {{ var.inventory_quantity | default: 0 }};
-      // {% endfor %}
+      var inv_qty = {};
+      {% for var in product.variants %}
+      inv_qty[{{- var.id -}}] = {{ var.inventory_quantity | default: 0 }};
+      {% endfor %}
     </script>
     {% if product.variants.first.inventory_management == "shopify" %}
       {% if product.variants.first.inventory_quantity >= 10 %}
@@ -28,7 +28,7 @@
       {% elsif product.variants.first.inventory_quantity > 0 and product.variants.first.inventory_quantity < 10  %}
         <span style="font-weight:bold; color:orange" class="ex-text">{{ product.variants.first.inventory_quantity }} {{ 'products.product.in_stock' | t }}</span>
       {% else %}
-        <span style="font-weight:bold; color:red" class="ex-text">{{ 'products.product.out_stock' | t }}</span>
+        <span style="font-weight:bold; color:red" class="ex-text"> {{ 'products.product.out_stock' | t }}</span>
       {% endif %}
     {% else %}
       <span style="" class="ex-text">
@@ -104,7 +104,8 @@
   <div class="form-group">
     {% if section.settings.product_quantity_enable %}
     <label class="control-label" for="Quantity">{{ 'products.product.quantity' | t }}:</label>
-    <input type="text" name="quantity" value="1" size="2" id="Quantity" onkeyup="updatecartsticky(1)" class="form-control" />
+    <input type="number" name="quantity" value="1" min="1" size="2" id="Quantity" onkeyup="updatecartsticky(1)" class="form-control" />
+    <!-- <input type="number" id="Quantity" name="quantity" value="1" min="1"> -->
     {% endif %}
     {% if section.settings.product_quantity_message %}
     <span id="variantQuantity" class="variant-quantity hidden"></span>
@@ -307,3 +308,13 @@ function processPayment(paymentData) {
   width: 100% !important;
 }
 {%  endstyle %}
+
+<script type="text/javascript">
+  function updatecartsticky(input1) {
+    if (input1 == 1 ) {
+      $('#product').find('input[name="stickyquantity"]').val($('#form_buy').find('input[name="quantity"]').val());
+    } else {
+      $('#product').find('input[name="quantity"]').val($('#form_buy_sticky').find('input[name="stickyquantity"]').val());
+    }
+  }
+</script>
