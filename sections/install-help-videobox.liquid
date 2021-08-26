@@ -1,0 +1,174 @@
+<div class="row-{{section.id}} {% if section.settings.fullwidth == true %}full-width{% endif  %}" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="row">
+      <div class="video-col col-xs-10 col-sm-10 col-md-8">
+        {% if section.settings.headerTitle != "" %}
+          <div class="video-col--header-style">{{ section.settings.headerTitle }}</div>
+        {% endif %}
+        {% if section.settings.subTitle != "" %}
+          <div class="video-col--subtitle-style">{{ section.settings.subTitle}}</div>
+        {% endif %}
+
+        <div id="cmsblock-33" class="cmsblock">
+          <div class='description'>
+            <div class="our_story1 {% if section.settings.top_margin %} margin-top{% endif %}">
+              <div class="static_video1">
+                <img class="img_static3{% if settings.lazyloading_enable %} lazyload{% endif %}" {% if settings.lazyloading_enable %} data-{% endif %}src="{% if section.settings.image != blank %}{{ section.settings.image | img_url: '1920x601' }}{% else %} {{ 'videobox.jpg' | asset_img_url: '1920x601' }} {% endif %}" alt="">
+                <div id="cms_play1" class="{{section.id}}"><img src="{{ 'playing_video.png' | asset_url }}" alt=""></div>
+              </div>
+            </div>
+            <script>// <![CDATA[
+              $(document).ready(function(){
+                $('#cms_play1.{{section.id}}').click(function(){
+                  $(this).hide('fast');
+
+                {% if section.settings.video_type == 'youtube' %}
+                $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="https://www.youtube.com/embed/{{ section.settings.video_src }}?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>');
+                  {% elsif section.settings.video_type == 'vimeo' %}
+                  $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="https://player.vimeo.com/video/{{ section.settings.video_src }}?color=ffffff&title=0&byline=0&portrait=0&autoplay={{ section.settings.video_autoplay }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+                  {% elsif section.settings.video_type == 'mp4' %}
+                  $('.row-{{section.id}} .static_video1').append('<video class="added_video1" controls autoplay width="100%" height="100%" poster="https://via.placeholder.com/1920x850/ffffff/ffffff" ><source src="{{ section.settings.video_src }}" type="video/mp4"></video>');
+                  {% endif %}
+                  });
+                {% if section.settings.video_autoplay %}
+                	$('#cms_play1.{{section.id}}').click();
+                {% endif %}
+              });
+              // ]]>
+            </script>
+          </div>
+        </div>
+        {% if section.settings.description != "" %}
+          <div class="video-dol_description-style">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+   "name": "Video Box Section-1",
+   "settings": [
+      {
+        "type": "text",
+        "id": "headerTitle",
+        "label": "Main Title",
+        "default": "Help, Tips & Installation"
+      },
+      {
+        "type": "text",
+        "id": "subTitle",
+        "label": "Sub Title",
+        "default": "Setting up & Problem Solving for your Vanolarm"
+      },
+      {
+         "type": "image_picker",
+         "id": "image",
+         "label": "Image",
+         "info": "1920 x 650px recommended for preload image"
+      },
+      {
+         "type": "select",
+         "id": "video_type",
+         "label": "Select video type",
+         "options": [
+            {
+               "value": "youtube",
+               "label": "Youtube"
+            },
+            {
+               "value": "vimeo",
+               "label": "Vimeo"
+            },
+            {
+               "value": "mp4",
+               "label": "Mp4"
+            }
+         ],
+         "default": "youtube"
+      },
+      {
+         "type": "text",
+         "id": "video_src",
+         "label": "Video Src",
+         "default": "Hi7dDjigaSg",
+         "info": "Add src id for youtube/vimeo and full link for video file"
+      },
+      {
+         "type": "checkbox",
+         "id": "video_autoplay",
+         "label": "Autoplay",
+         "default": true,
+         "info": "If set to true, the preload image won't be shown. Autoplay with youtube/Vimeo still won't work as browsers don't allow autoplay anymore"
+      },
+	  {
+         "type": "checkbox",
+         "id": "fullwidth",
+         "label": "Set Div fullwidth?",
+         "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "top_margin",
+        "label": "Add top margin?",
+        "info": "White empty space above section",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Welcome to the Common questions and Set up & Problem Solving page for your Vanolarm unit."
+      }
+   ]
+}
+{% endschema %}
+
+{% style %}
+.video-col {
+  padding: 0;
+  margin: auto;
+  float: none;
+}
+.img_static3 {
+  max-width: 100%;
+  height: 600px;
+}
+@media screen and (max-width:768px){
+  .img_static3 {
+    max-width: 100%;
+    height: 300px;
+  }
+}
+.video-col--header-style {
+  font-family: Lato;
+  font-size: 56px;
+  font-weight: 700;
+  color: #515151;
+  text-align: center;
+}
+.video-col--subtitle-style {
+  font-family: Lato;
+  font-size: 35px;
+  font-weight: 400;
+  color: #515151;
+  text-align: center;
+}
+@media screen and (max-width:768px){
+  .video-col--header-style {
+    font-size: 48px;
+  }
+  .video-col--subtitle-style {
+    font-size: 30px;
+  }
+}
+.video-dol_description-style {
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #333333;
+}
+{% endstyle %}
