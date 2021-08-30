@@ -1373,7 +1373,7 @@ header .btn-group .dropdown-menu .item-selected{
   -webkit-box-shadow: none;
 }
 .static1-elomus2 .icon i {
-  font-size: 34px;
+  font-size: 50px;
   vertical-align: middle;
   color: #7c8389;
 }
@@ -2259,7 +2259,7 @@ header .btn-group .dropdown-menu .item-selected{
 }
 .static5-elomus2 a:hover {
   background: rgba(33, 179, 241, 0.8);
-  border-color:   background: rgba(33, 179, 241, 0.8);
+  border-color: rgba(33, 179, 241, 0.8);
 }
 
 .static5-elomus3 {

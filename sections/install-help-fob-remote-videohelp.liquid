@@ -1,0 +1,332 @@
+<div class="main-row {% if section.settings.fullwidth == true %}full-width {% endif  %} {% if section.settings.background == true %} layer-background {% endif  %} {% if section.settings.layout == 'feature-service2' or section.settings.layout == 'feature-service4' %} ma2{% endif  %}" data-section-id="{{ section.id }}">
+  <div class="container{% if section.settings.bottom_border %} border-bottom{% endif %}">
+    <div class="row">
+      <div class="main-col col-sm-12 col-md-12">
+        <div class="row sub-row">
+          <div class="sub-col col-sm-12 col-md-12">
+            <!--Service Area Start-->
+            <div class="static1-elomus2">
+              {% if section.settings.heading != blank %}
+              <div class="module-title">
+                {% if section.settings.description != blank %}
+                <p class="sub-title">{{ section.settings.description }}</p>
+                {% endif %}
+                <h2 class="header-animation">{{ section.settings.heading }}</h2>
+              </div>
+              {% endif %}
+              <div class="row feature-service--display">
+                {% if section.blocks.size > 0 %}
+                {% for block in section.blocks limit:6 %}
+                <div class="col col-xs-12 item-animation-{{forloop.index}}">
+                  <a href="{{block.settings.video_src}}">
+                    <div class="icon">
+                      {% if block.settings.use_feature_service_icon %}
+                        {% if block.settings.feature_service_icon != blank %}
+                        <i class="fa {{block.settings.feature_service_icon }}"></i>
+                        {% endif %}
+                      {% else %}
+                        {% if block.settings.image != blank %}
+                            <img {% if settings.lazyloading_enable %} class="lazyload" data-{% endif %}src="{{ block.settings.image | img_url: '60x60' }}" alt="" />
+                        {% endif %}
+                      {% endif %}
+                    </div>
+                    <h3 class="feature-service-title" style="font-weight: 400;">{{ block.settings.feature_service_title }}</h3>
+                  </a>
+                  <p class="feature-service-description" style="font-size: 16px;">{{ block.settings.feature_service_description }}</p>
+                </div>
+                {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+            <!-- {{ page.content }} -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  {% if section.settings.background_color != settings.section_bg_color -%}
+  #shopify-section-{{section.id }} .layer-background {
+    background: {{ section.settings.background_color }};
+  }
+  {%- endif %}
+  {% if section.settings.heading_color != '#454545' -%}
+  #shopify-section-{{section.id }} .module-title h2, #shopify-section-{{section.id }} h3,
+  #shopify-section-{{section.id }} h4 {
+    color: {{ section.settings.heading_color }};
+  }
+  {%- endif %}
+  {% if section.settings.description_color != '#7e7e7e' -%}
+  #shopify-section-{{section.id }} .module-title .sub-title,
+  #shopify-section-{{section.id }} p {
+    color: {{ section.settings.description_color }};
+  }
+  #shopify-section-{{section.id }} .static1-elomus2 .icon {
+    background-color: {{ section.settings.description_color }};
+  }
+  {%- endif %}
+  {% if section.settings.image != blank %}
+  #shopify-section-{{section.id }} .layer-background {
+    background-image: url('{{ section.settings.image | img_url: 'master' }}');
+  }
+  {% endif %}
+</style>
+{% schema %}
+{
+  "name": "Service Boxes section",
+  "max_blocks": 5,
+  "settings": [
+	  {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#454545",
+      "info": "Used for top heading and features Text1"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#7e7e7e",
+      "info": "Used for heading and blocks description"
+    },
+	  {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "label": "Set Div fullwidth?",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image",
+      "info": "1920 width recommended"
+    },
+	  {
+      "type": "checkbox",
+      "id": "background",
+      "label": "Add Background",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Sections Background Color",
+      "info": "This option allows you to set different background color than default one for the section.",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_border",
+      "label": "Add bottom border?",
+      "info": "Border line below the section",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "box",
+      "name": "Feature box",
+      "settings": [
+		    {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image",
+          "info": "Used for adding Icon Images. Get icon from [this link](https:\/\/www.google.com\/search?q=image+icons). Ideal size 56x56"
+        },
+        {
+            "type": "checkbox",
+            "id": "use_feature_service_icon",
+            "label": "Use Font Icon?",
+            "default": false
+        },
+		    {
+          "type": "text",
+          "id": "feature_service_icon",
+          "label": "Font Icon Code",
+          "default": "fa-shopping-bag",
+          "info": "Used for adding Icon fonts. Get icon codes from [this link](https:\/\/fontawesome.com\/cheatsheet\/). \'fa-\' should be prepended to each icon e.g. \'fa-shopping-bag\' . For brand icons \'fab ' also needs to be prepended."
+		    },
+        {
+          "type": "text",
+          "id": "feature_service_title",
+          "label": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_service_description",
+          "label": "Feature description"
+        },
+        {
+          "type": "text",
+          "id": "video_src",
+          "label": "Video Src",
+          "info": "Add src id for youtube/vimeo and full link for video file"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+
+@media (prefers-reduced-motion: no-preference) {
+  .icon--animation {
+    position: relative;
+    animation-name: example_1;
+    animation-duration: 4s;
+    animation-delay: -2s;
+  }
+}
+@keyframes example_1 {
+  50%  { left:-300px;}
+  75%  { left:0px;}
+}
+@media (prefers-reduced-motion: no-preference) {
+  .title--animation {
+    position: relative;
+    animation-name: example_2;
+    animation-duration: 4s;
+    animation-delay: -2s;
+  }
+}
+@keyframes example_2 {
+  50%  { left:-600px;}
+  75%  { left:0px;}
+}
+@media (prefers-reduced-motion: no-preference) {
+  .description--animation {
+    position: relative;
+    animation-name: example_3;
+    animation-duration: 4s;
+    animation-delay: -2s;
+  }
+}
+@keyframes example_3 {
+  50%  { left:-800px;}
+  75%  { left:0px;}
+}
+@media (prefers-reduced-motion: no-preference) {
+  .title--animation1 {
+    position: relative;
+    animation-name: example_4;
+    animation-duration: 4s;
+    animation-delay: -2s;
+  }
+}
+@keyframes example_4 {
+  50%  { right:-600px;}
+  75%  { right:0px;}
+}
+@media (prefers-reduced-motion: no-preference) {
+  .description--animation1 {
+    position: relative;
+    animation-name: example_5;
+    animation-duration: 4s;
+    animation-delay: -2s;
+  }
+}
+@keyframes example_5 {
+  50%  { right:-800px;}
+  75%  { right:0px;}
+}
+{% endstyle %}
+<!--End of Service Area-->
+
+<script>
+
+  for(var i=1; i<4; i++){
+    const observer_icon = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const icon = entry.target.querySelector('.icon');
+        if (entry.isIntersecting) {
+          icon.classList.add('icon--animation');
+          return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+        icon.classList.remove('icon--animation');
+      });
+    });
+    observer_icon.observe(document.querySelector('.item-animation-'+i));
+
+    const observer_title = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const title = entry.target.querySelector('.feature-service-title');
+        if (entry.isIntersecting) {
+          title.classList.add('title--animation');
+          return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+        title.classList.remove('title--animation');
+      });
+    });
+    observer_title.observe(document.querySelector('.item-animation-'+i));
+
+    const observer_description = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const description = entry.target.querySelector('.feature-service-description');
+        if (entry.isIntersecting) {
+          description.classList.add('description--animation');
+          return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+        description.classList.remove('description--animation');
+      });
+    });
+    observer_description.observe(document.querySelector('.item-animation-'+i));
+  }
+
+  for(var i=4; i<6; i++){
+    const observer_icon = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const icon = entry.target.querySelector('.icon');
+        if (entry.isIntersecting) {
+          icon.classList.add('icon--animation');
+          return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+        icon.classList.remove('icon--animation');
+      });
+    });
+    observer_icon.observe(document.querySelector('.item-animation-'+i));
+
+    const observer_title = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const title = entry.target.querySelector('.feature-service-title');
+        if (entry.isIntersecting) {
+          title.classList.add('title--animation1');
+          return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+        title.classList.remove('title--animation1');
+      });
+    });
+    observer_title.observe(document.querySelector('.item-animation-'+i));
+
+    const observer_description = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const description = entry.target.querySelector('.feature-service-description');
+        if (entry.isIntersecting) {
+          description.classList.add('description--animation1');
+          return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+        description.classList.remove('description--animation1');
+      });
+    });
+    observer_description.observe(document.querySelector('.item-animation-'+i));
+  }
+
+  </script>

@@ -1,0 +1,267 @@
+<div class="main-row {% if section.settings.fullwidth == true %}full-width{% endif  %} {% if section.settings.background == true %} layer-background {% endif  %} {% if section.settings.top_margin %} margin-top{% endif %}" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="row">
+      <div class="main-col col-sm-12 col-md-12">
+        <div class="row sub-row">
+          <div class="sub-col col-sm-12 col-md-12">
+            <div class="static5-elomus2 alt2 question-answer" >
+              <div class="container text-{{ section.settings.ad_align }} container--style">
+                {% if section.settings.subheading != blank %}
+                  <h4 style="margin-bottom: 15px;">{{ section.settings.subheading }}</h4>
+                {% endif %}
+                {% if section.settings.heading != blank %}
+                  <h3>{{ section.settings.heading }}</h3>
+                {% endif %}
+                {% if section.settings.description != blank %}
+                  <p>{{ section.settings.description }}</p>
+                {% endif %}
+                {% for block in section.blocks %}
+                  {% if block.settings.link_text != blank %}
+                    <a href="{{ block.settings.link }}" class="txt">{{ block.settings.link_text }}</a>
+                  {% endif %}
+                  {% if block.settings.link_text_2 != blank %}
+                    <a href="{{ block.settings.link_2 }}" class="txt2">{{ block.settings.link_text_2 }}</a>
+                  {% endif %}
+                  {% if block.settings.image != blank %}
+                    <a href="{{ block.settings.link_img }}" class="img_link">
+                      <img class="lazyload" src="{{ block.settings.image | img_url: '100x100' }}" alt=""/>
+                      <h4 style="font-family: Lato; font-size: 30px;">{{ block.settings.heading }}</h4>
+                    </a>
+                    <p class="context_style">{{ block.settings.subheading }}</p>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Question Answer section",
+  "class": "index-section index-section--flush",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "label": "Set Div fullwidth?",
+      "default": true
+    },
+	{
+      "type": "checkbox",
+      "id": "background",
+      "label": "Add Background",
+      "default": false
+    },
+    {
+        "type": "color",
+        "id": "background_color",
+        "label": "Sections Background Color",
+        "info": "This option allows you to set different background color than default one for the section.",
+        "default": "#f8f8f8"
+    },
+    {
+      "type": "checkbox",
+      "id": "top_margin",
+      "label": "Add top margin?",
+      "info": "White empty space above section",
+      "default": false
+    },
+	  {
+      "type": "text",
+      "id": "subheading",
+      "label": "SubHeading",
+      "info": "Mostly appears on top of main heading in small fonts"
+    },
+    {
+      "type": "color",
+      "id": "sub_heading_color",
+      "label": "Subheading Color",
+      "default": "#ababab",
+      "info": "Used for top heading and features Text1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#454545",
+      "info": "Used for main title"
+    },
+    {
+      "type": "select",
+      "id": "ad_align",
+      "label": "Align",
+      "options": [
+        {
+        "value": "left",
+        "label": "left"
+        },
+        {
+        "value": "center",
+        "label": "center"
+        },
+        {
+        "value": "right",
+        "label": "right"
+        }
+       ],
+      "default": "left",
+	  "info": "Used for text alignment"
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_padding",
+      "label": "Add bottom margin?",
+      "info": "White empty space below section",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_border",
+      "label": "Add bottom border?",
+      "info": "Border line below section",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+        "type": "box",
+        "name": "Question Answer Box",
+        "settings": [
+          {
+            "type": "text",
+            "id": "link_text",
+            "label": "Button Style1"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Button 1 URL"
+          },
+          {
+            "type": "text",
+            "id": "link_text_2",
+            "label": "Button Style2"
+          },
+          {
+            "type": "url",
+            "id": "link_2",
+            "label": "Button 2 URL"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "link_img",
+            "label": "Link URL"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Main Heading"
+          },
+          {
+            "type": "text",
+            "id": "subheading",
+            "label": "SubHeading"
+          }
+        ]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+
+    #shopify-section-{{section.id }} h4, #shopify-section-{{section.id }} .sub-title, #shopify-section-{{section.id }} .sub-title1 {
+      color: {{ section.settings.sub_heading_color }};
+    }
+    #shopify-section-{{section.id }} h2, #shopify-section-{{section.id }} h3 {
+      color: {{ section.settings.heading_color }};
+    }
+    #shopify-section-{{section.id }} p, #shopify-section-{{section.id }}  div {
+      color: {{ section.settings.description_color }};
+    }
+    #shopify-section-{{section.id }} .col-text .price {
+      color: {{ section.settings.price_color }};
+    }
+
+    #shopify-section-{{section.id }} a.txt {
+      color: black;
+      border: 2px solid rgba(0,0,0, 0.7);
+      background-color: white;
+      border-radius: 30px 30px 30px 30px;
+      padding: 20px 30px 20px 30px;
+      line-height: 1;
+      font-size: 18px !important;
+      font-weight: 700 !important;
+      margin: auto;
+      margin-bottom: 15px;
+    }
+
+    #shopify-section-{{section.id }} a.txt:hover {
+      box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
+      border: 2px solid rgba(255, 0, 0, 0.7) ;
+      background-color: #FFFFFF;
+      text-decoration: underline;
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.1);
+    }
+
+    #shopify-section-{{section.id }} a.txt2 {
+      color: white;
+      border: 2px solid rgba(0,0,0, 0.7);
+      background-color: black;
+      border-radius: 30px 30px 30px 30px;
+      padding: 20px 30px 20px 30px;
+      line-height: 1;
+      font-size: 18px !important;
+      font-weight: 700 !important;
+      margin: auto;
+      margin-bottom: 15px;
+    }
+
+    #shopify-section-{{section.id }} a.txt2:hover {
+      box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
+      border: 2px solid rgba(255, 0, 0, 0.7) ;
+      background-color: rgba(255, 0, 0, 0.7);
+      text-decoration: underline;
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.1);
+    }
+    .question-answer h4 {
+      font-family: Lato !important;
+      font-size: 22px;
+      text-align: center;
+      text-transform: none !important;
+    }
+    .container--style {
+      display: flex;
+      flex-direction: column;
+    }
+    #shopify-section-{{section.id }} a.img_link:hover {
+      background-color: white;
+      border: none;
+    }
+    #shopify-section-{{section.id }} .context_style {
+      max-width: 500px;
+      margin: auto;
+      font-family: Lato !important;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #333333;
+      text-align: center;
+    }
+ {% endstyle %}

@@ -1,0 +1,39 @@
+<div class="row-{{section.id}} full-width" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="row">
+      <div class="video-col col-xs-10 col-sm-10 col-md-9">
+        <div class="silder-container">
+          {% for block in section.blocks %}
+          <img class="lazyload" src="{{ block.settings.image | img_url: '360x' }}" alt=""/>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Slider Section",
+  "settings": [
+  ],
+  "blocks": [
+    {
+        "type": "box",
+        "name": "Slider Image Box",
+        "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Slider Image",
+            "info": "Used for adding Icon Images. Get icon from [this link](https:\/\/www.google.com\/search?q=image+icons). Ideal size 56x56"
+        }
+        ]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+
+{% endstyle %}
