@@ -1,11 +1,25 @@
 <div class="row-{{section.id}} full-width" data-section-id="{{ section.id }}">
-  <div class="container">
+  <div class="container" style="margin-top: 30px;">
     <div class="row">
       <div class="video-col col-xs-10 col-sm-10 col-md-9">
-        <div class="silder-container">
-          {% for block in section.blocks %}
-          <img class="lazyload" src="{{ block.settings.image | img_url: '360x' }}" alt=""/>
-          {% endfor %}
+        <div class="carousel-container">
+          <i class="fas fa-chevron-left" id="prevBtn"></i>
+          <i class="fas fa-chevron-right" id="nextBtn"></i>
+
+          <div class="carousel-slide">
+            {% for block in section.blocks %}
+              <img class="lazyload" src="{{ block.settings.image | img_url: '360x' }}" alt=""/>
+            {% endfor %}
+          </div>
+
+          <div class="radio-container" style="margin: auto; max-width: 100px; display: flex;
+          justify-content: space-between; padding-top: 10px;">
+            <input type="radio" name="radioBtn" id="radio1" checked>
+            <input type="radio" name="radioBtn" id="radio2">
+            <input type="radio" name="radioBtn" id="radio3">
+            <input type="radio" name="radioBtn" id="radio4">
+            <input type="radio" name="radioBtn" id="radio5">
+          </div>
         </div>
       </div>
     </div>
@@ -35,5 +49,159 @@
 {% endschema %}
 
 {% style %}
+  .carousel-container {
+    width: 1080px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+  }
+  .carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 360px;
+  }
+  #prevBtn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    left: 3%;
+    font-size: 30px;
+    color: darkgrey;
+    cursor: pointer;
+  }
+  #nextBtn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    right: 3%;
+    font-size: 30px;
+    color: darkgrey;
+    cursor: pointer;
+  }
+  #radio4 {
+    display: none;
+  }
+  #radio5 {
+    display: none;
+  }
+  @media screen and (max-width: 1023px) {
+    .carousel-container {
+      width: 360px;
+    }
+    #radio4 {
+      display: block;
+    }
+    #radio5 {
+      display: block;
+    }
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .carousel-container {
+      width: 720px;
+    }
+    #radio4 {
+      display: block;
+    }
 
+  }
 {% endstyle %}
+
+<script type="text/javascript">
+  const carouselSlide = document.querySelector('.carousel-slide');
+  const carouselImages = document.querySelectorAll('.carousel-slide img');
+
+  //Buttons
+  const prevBtn = document.querySelector('#prevBtn');
+  const nextBtn = document.querySelector('#nextBtn');
+
+  //Counter
+  let counter = 0;
+  let size = carouselImages[0].clientHeight;
+
+  carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+  //Button Listeners
+  nextBtn.addEventListener('click', () => {
+    const containerWidth = document.querySelector('.carousel-container').clientWidth;
+
+    if(counter === 2 && containerWidth === 1080){
+      carouselSlide.style.transition = "none";
+      return;
+    } else if(counter === 3 && containerWidth === 720){
+      carouselSlide.style.transition = "none";
+      return;
+    } else if(counter === 4 && containerWidth === 360){
+      carouselSlide.style.transition = "none";
+      return;
+    }
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter++;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+    console.log(counter);
+    console.log(containerWidth);
+    if(counter===1 && containerWidth === 1080) document.getElementById("radio2").checked = true;
+    else if(counter===2 && containerWidth === 1080) document.getElementById("radio3").checked = true;
+
+    if(counter===1 && containerWidth === 720) document.getElementById("radio2").checked = true;
+    else if(counter===2 && containerWidth === 720) document.getElementById("radio3").checked = true;
+    else if(counter===3 && containerWidth === 720) document.getElementById("radio4").checked = true;
+
+    if(counter===1 && containerWidth === 360) document.getElementById("radio2").checked = true;
+    else if(counter===2 && containerWidth === 360) document.getElementById("radio3").checked = true;
+    else if(counter===3 && containerWidth === 360) document.getElementById("radio4").checked = true;
+    else if(counter===4 && containerWidth === 360) document.getElementById("radio5").checked = true;
+  });
+
+  prevBtn.addEventListener('click', () => {
+    const containerWidth = document.querySelector('.carousel-container').clientWidth;
+    if(counter === 0){
+      carouselSlide.style.transition = "none";
+      return;
+    }
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter--;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+    console.log(counter);
+    console.log(containerWidth);
+    if(counter===1 && containerWidth === 1080) document.getElementById("radio2").checked = true;
+    else if(counter===0 && containerWidth === 1080) document.getElementById("radio1").checked = true;
+
+    if(counter===2 && containerWidth === 720) document.getElementById("radio3").checked = true;
+    else if(counter===1 && containerWidth === 720) document.getElementById("radio2").checked = true;
+    else if(counter===0 && containerWidth === 720) document.getElementById("radio1").checked = true;
+
+    if(counter===3 && containerWidth === 360) document.getElementById("radio4").checked = true;
+    else if(counter===2 && containerWidth === 360) document.getElementById("radio3").checked = true;
+    else if(counter===1 && containerWidth === 360) document.getElementById("radio2").checked = true;
+    else if(counter===0 && containerWidth === 360) document.getElementById("radio1").checked = true;
+  });
+
+  radio1.addEventListener('click', () => {
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter = 0;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  });
+  radio2.addEventListener('click', () => {
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter = 1;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  });
+  radio3.addEventListener('click', () => {
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter = 2;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  });
+  radio4.addEventListener('click', () => {
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter = 3;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  });
+  radio5.addEventListener('click', () => {
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter = 4;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  });
+
+</script>
