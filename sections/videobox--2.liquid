@@ -6,11 +6,9 @@
           <div class='description'>
             <div class="our_story1 {% if section.settings.top_margin %} margin-top{% endif %}">
               <div class="static_video1">
-                <iframe class="added_video1" style="position: unset;" src="//www.youtube.com/embed/{{section.settings.video_src}}" frameborder="0" autoplay="autoplay" allow="autoplay" allowfullscreen></iframe>
+                <div id="added_video1"></div>
               </div>
-
             </div>
-
           </div>
         </div>
       </div>
@@ -84,7 +82,7 @@
 }
 {% endschema %}
 
-<script>
+<!-- <script>
   let first_time = false;
 
   const observer111 = new IntersectionObserver(entries => {
@@ -103,4 +101,51 @@
   });
 
   observer111.observe(document.querySelector('.static_video1'));
+</script> -->
+<script>
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+var video;
+var play = false;
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('added_video1', {
+    height: '390',
+    width: '640',
+    videoId: 'M7lc1UVf-VE',
+    playerVars: {
+      'playsinline': 1
+    },
+    events: {
+      'onReady': onPlayerReady,
+    }
+  });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+  // event.target.playVideo();
+  // console.log(event.target)
+  video = event.target;
+}
+
+window.onscroll = function() {
+    var hT = $('#added_video1').offset().top;
+    var hH = $('#added_video1').outerHeight();
+    var wH = $(window).height();
+    var wS = $(this).scrollTop();
+
+    if (wS > (hT+hH-wH) && !play){
+      video.playVideo();
+      play = true;
+      console.log('asdf')
+    }
+  }
 </script>

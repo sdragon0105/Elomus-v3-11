@@ -17,7 +17,7 @@
 
                   {% if section.settings.video_type == 'youtube' %}
                   // $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="" frameborder="0" allowfullscreen></iframe>');
-                    $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="https://www.youtube.com/embed/{{ section.settings.video_src }}" frameborder="0" autoplay="autoplay" allow="autoplay" allowfullscreen></iframe>');
+                    $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1 lazyload" src="" frameborder="0" allow="autoplay; encrypted-media" data-ytbridge="vidSurrogate2"  allowfullscreen></iframe>');
                   {% elsif section.settings.video_type == 'vimeo' %}
                     $('.row-{{section.id}} .static_video1').append('<iframe class="added_video1" src="https://player.vimeo.com/video/{{ section.settings.video_src }}?color=ffffff&title=0&byline=0&portrait=0&autoplay={{ section.settings.video_autoplay }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
                   {% elsif section.settings.video_type == 'mp4' %}
@@ -80,7 +80,7 @@
          "default": true,
          "info": "If set to true, the preload image won't be shown. Autoplay with youtube/Vimeo still won't work as browsers don't allow autoplay anymore"
       },
-	  {
+	    {
          "type": "checkbox",
          "id": "fullwidth",
          "label": "Set Div fullwidth?",
@@ -103,7 +103,7 @@
 }
 {% endschema %}
 
-<script>
+<!-- <script>
   let first_time = false;
 
   const observer111 = new IntersectionObserver(entries => {
@@ -111,16 +111,35 @@
       const square111 = entry.target.querySelector('.added_video1');
 
       if (entry.isIntersecting && !first_time) {  //
-        square111.setAttribute("src", "https://www.youtube.com/embed/{{ section.settings.video_src }}?autoplay=1&muted=1&loop=1&playsinline=1");
+        square111.setAttribute('src', 'https://www.youtube.com/embed/{{section.settings.video_src}}?autoplay=1&muted=1&loop=1&playsinline=1');
         first_time = true;
         return; // if we added the class, exit the function
       }
 
-      // // We're not intersecting, so remove the class!
+      // We're not intersecting, so remove the class!
       // square111.setAttribute("src", "https://www.youtube.com/embed/{{ section.settings.video_src }}");
     });
   });
 
   observer111.observe(document.querySelector('.static_video1'));
 
+</script> -->
+
+<script>
+  window.onscroll = function() {
+    var hT = $('.added_video1').offset().top;
+    var hH = $('.added_video1').outerHeight();
+    var wH = $(window).height();
+    var wS = $(this).scrollTop();
+
+    if (wS > (hT+hH-wH)){
+      var videoUrl = $('.added_video1').attr('src');
+      console.log(videoUrl);
+      if(videoUrl.search('autoplay=1') == -1){
+        $('.added_video1').attr('src', 'https://www.youtube.com/embed/{{section.settings.video_src}}?api=1&player_id=video-iframe&autoplay=1&muted=1&loop=1');
+      }
+    }
+  }
 </script>
+
+
